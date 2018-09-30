@@ -1,4 +1,7 @@
 
+Be sure to grab [lyn](http://feuniverse.us/t/ea-asm-tool-lyn-elf2ea-if-you-will/2986)
+
+
 Editing the modular minimug box (henceforth just the MMB) involves two steps for users: Picking which modules to use and then setting the options for those modules. Both of these are done in one file, `MMB Configuration.txt`.
 
 Modules are broadly grouped into types, such as modules that display minimugs, names, numbers, etc.
@@ -38,12 +41,12 @@ Here is a list of current modules and descriptions of them:
 MMBStandardTilemap
 	This is the standard tilemap drawing routine. It draws a blue, green, or red palette depending on the allegiance of the unit. This tilemap is made up of:
 
-	A two byte header, containing width-1 and height-1
-	Rows, with the last row first, consisting of tile indexe shorts
+A two byte header, containing width-1 and height-1
+Rows, with the last row first, consisting of tile indexe shorts
 
-	An image called `Tile Indexes.png` shows the available (vanilla) tiles available for use with the tilemap. Combine the row number and column number to gain the tile index of the tile (i.e. the last tile in the image is $7F). Combine tile indexes with $400 to horizontally flip them, $800 to vertically flip them.
+An image called `Tile Indexes.png` shows the available (vanilla) tiles available for use with the tilemap. Combine the row number and column number to gain the tile index of the tile (i.e. the last tile in the image is $7F). Combine tile indexes with $400 to horizontally flip them, $800 to vertically flip them.
 
-	When changing the size of the tilemap, be sure to edit both `MMBWidth` and `MMBHeight`.
+When changing the size of the tilemap, be sure to edit both `MMBWidth` and `MMBHeight`.
 
 MMBName
 	Shows the unit's name, aligned to the left.
