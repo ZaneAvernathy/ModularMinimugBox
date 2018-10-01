@@ -50,7 +50,7 @@ After each set of module options are definitions that you can use to adjust the 
 	SHORT /* Row 4 */ $0B $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0F
 	SHORT /* Row 3 */ $0B $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0F
 	SHORT /* Row 2 */ $0B $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0E $0F
-	SHORT /* Row 1 */ $61 $62 $03 $03 $03 $03 $03 $03 $03 $03 $03 $03 $03 $03 $03 $03 $04 $C05
+	SHORT /* Row 1 */ $61 $62 $03 $03 $03 $03 $03 $03 $03 $03 $03 $03 $03 $03 $03 $03 $04 $05
 
 	ALIGN 4
 
