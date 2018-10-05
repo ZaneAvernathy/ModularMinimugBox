@@ -1,7 +1,7 @@
 
 #ifndef MODULAR_MMB
 	#define MODULAR_MMB
-ORG 0xb2a610
+
 	MESSAGE MMB code begins at CURRENTOFFSET
 
 /*
