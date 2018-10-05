@@ -1,8 +1,5 @@
 
-Be sure to grab [lyn](http://feuniverse.us/t/ea-asm-tool-lyn-elf2ea-if-you-will/2986)
-
-
-Editing the modular minimug box (henceforth just the MMB) involves two steps for users: Picking which modules to use and then setting the options for those modules. Both of these are done in one file, `MMB Configuration.txt`.
+Editing the modular minimug box (henceforth just the MMB) involves two steps for users: Picking which modules to use and then setting the options for those modules. 
 
 Modules are broadly grouped into types, such as modules that display minimugs, names, numbers, etc.
 
@@ -23,7 +20,6 @@ Modules are broadly grouped into types, such as modules that display minimugs, n
 	#define MMBNameY 3
 
 ```
-*Shown: A snippet of `MMB Configuration.txt`.*
 
 To disable a module, simply add `//` before it. In this example, we see that two out of the three available modules are disabled. For most types of modules it only makes sense for one module to be enabled.
 
@@ -41,12 +37,12 @@ Here is a list of current modules and descriptions of them:
 MMBStandardTilemap
 	This is the standard tilemap drawing routine. It draws a blue, green, or red palette depending on the allegiance of the unit. This tilemap is made up of:
 
-A two byte header, containing width-1 and height-1
-Rows, with the last row first, consisting of tile indexe shorts
+	A two byte header, containing width-1 and height-1
+	Rows, with the last row first, consisting of tile indexe shorts
 
-An image called `Tile Indexes.png` shows the available (vanilla) tiles available for use with the tilemap. Combine the row number and column number to gain the tile index of the tile (i.e. the last tile in the image is $7F). Combine tile indexes with $400 to horizontally flip them, $800 to vertically flip them.
+	An image called `Tile Indexes.png` shows the available (vanilla) tiles available for use with the tilemap. Combine the row number and column number to gain the tile index of the tile (i.e. the last tile in the image is $7F). Combine tile indexes with $400 to horizontally flip them, $800 to vertically flip them.
 
-When changing the size of the tilemap, be sure to edit both `MMBWidth` and `MMBHeight`.
+	When changing the size of the tilemap, be sure to edit both `MMBWidth` and `MMBHeight`.
 
 MMBName
 	Shows the unit's name, aligned to the left.
@@ -70,13 +66,28 @@ MMBEquippedWeapon
 	Shows only the unit's equipped item, if they have one.
 
 MMBEquippedWeaponName
-	Shows only the unit's equipped item, if they have one, along with the item's name. The coordinates for this should be evenly divisable by 8.
+	Shows only the unit's equipped item, if they have one, along with the item's name.
+
+MMBEquippedWeaponNameCentered
+	Shows only the unit's equipped item, if they have one, along with the item's name centered in available space.
+
+MMBEquippedWeaponNameOnly
+	Shows the unit's equipped weapon name, if they have one.
+
+MMBEquippedWeaponNameOnlyCentered
+	Shows the unit's equipped weapon name centered in available space, if they have one.
 
 MMBInventoryOrEquippedWeaponName
-	This shows the unit's full inventory if they are an enemy or their equipped weapon and weapon name if they are not. The coordinates for this should be evenly divisable by 8.
+	This shows the unit's full inventory if they are an enemy or their equipped weapon and weapon name if they are not.
+
+MMBInventoryOrEquippedWeaponNameCentered
+	This shows the unit's full inventory if they are an enemy or their equipped weapon and weapon name centered in available space if they are not.
 
 MMBHPStatus
 	This draws an HP label, current HP, and max HP the way vanilla does, alternating with status every 64 frames.
+
+MMBHP
+	This draws an HP label, current HP, and max HP the way vanilla does.
 
 MMBDEFRES
 	This alternates between drawing a defense label + number and a resistance label + number every 64 frames
@@ -86,6 +97,9 @@ MMBDEFRES
 
 MMBHPBar
 	This draws a bar that represents current HP/max HP.
+
+MMBHPBarStatus
+	This draws a bar that represents current HP/max HP, alternating with status every 64 frames.
 
 MMBAffinity
 	This draws the unit's affinity, if they have one.
