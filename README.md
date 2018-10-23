@@ -143,7 +143,7 @@ Here's a list of available modules and a short description of each:
 17. MMBDEFRES
     * This alternates between drawing a defense label + number and a resistance label + number every 64 frames
 
-18. MMBDEFRES
+18. MMBAVODOD
     * This alternates between drawing an avoid label + number and a dodge (crit avoid) label + number every 64 frames
 
 19. MMBHPBar
