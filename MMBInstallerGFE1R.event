@@ -64,7 +64,7 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBNameWidth 7
 	#define MMBNameColor TextBlack
 	#define MMBNameX 5
-	#define MMBNameY 1
+	#define MMBNameY 3
 
 // Minimug modules
 
@@ -88,28 +88,28 @@ After each set of module options are definitions that you can use to adjust the 
 	//#define MMBInventoryOrEquippedWeaponName // uses alt text
 	//#define MMBInventoryOrEquippedWeaponNameCentered // uses alt text
 	//#define MMBEquippedWeaponNameOnly // uses alt text
-	#define MMBEquippedWeaponNameOnlyCentered // uses alt text
+	//#define MMBEquippedWeaponNameOnlyCentered // uses alt text
 
 // Inventory options
 
 	// Coordinates are in pixels
 	#define MMBInventoryX 40
-	#define MMBInventoryY 24
+	#define MMBInventoryY 8
 	#define MMBInventoryTileIndex 0x300
 
 	// Used for item text
 	// Coordinates are in 8x8 pixel tiles
-	#define MMBInventoryTextX 8
-	#define MMBInventoryTextY 5
+	#define MMBInventoryTextX 7
+	#define MMBInventoryTextY 1
 	#define MMBAltTextWidth 7
 	#define MMBTextAltColor TextBlack
 
 // Combination modules
 
-	//#define MMBHPStatus
+	#define MMBHPStatus
 	//#define MMBDEFRES
 	//#define MMBAVODOD
-	#define MMBHP
+	//#define MMBHP
 
 
 // Combination options
@@ -139,15 +139,15 @@ After each set of module options are definitions that you can use to adjust the 
 // Bar modules
 
 	//#define MMBHPBar
-	#define MMBHPBarStatus
+	//#define MMBHPBarStatus
 
 // Bar options
 
 	// Coordinates and widths are in 8x8 pixel tiles
 
 	// HP bar options
-	#define MMBHPBarX 1
-	#define MMBHPBarY 6
+	#define MMBHPBarX 5
+	#define MMBHPBarY 4
 	#define MMBHPBarTileWidth 7
 	#define MMBHPBarBase 0x1140
 
@@ -178,15 +178,15 @@ After each set of module options are definitions that you can use to adjust the 
 // Number modules
 
 	//#define MMBASNumber
-	//#define MMBATKNumber
+	#define MMBATKNumber
 	//#define MMBAVONumber
 	//#define MMBCHRNumber // Useless without skill system
-	//#define MMBCRTNumber
+	#define MMBCRTNumber
 	//#define MMBDEFNumber
 	//#define MMBDODNumber
-	//#define MMBEXPNumber
-	//#define MMBHITNumber
-	//#define MMBLevelNumber
+	#define MMBEXPNumber
+	#define MMBHITNumber
+	#define MMBLevelNumber
 	//#define MMBRESNumber
 	//#define MMBRTGNumber
 
@@ -200,8 +200,8 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBASY 48
 
 	// ATK Number
-	#define MMBATKX 128
-	#define MMBATKY 24
+	#define MMBATKX 112
+	#define MMBATKY 32
 
 	// AVO Number
 	#define MMBAVOX 96
@@ -212,8 +212,8 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBCHRY 16
 
 	// CRT Number
-	#define MMBCRTX 128
-	#define MMBCRTY 40
+	#define MMBCRTX 112
+	#define MMBCRTY 48
 
 	// DEF Number
 	#define MMBDEFX 128
@@ -228,8 +228,8 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBEXPY 48
 
 	// HIT Number
-	#define MMBHITX 128
-	#define MMBHITY 32
+	#define MMBHITX 112
+	#define MMBHITY 40
 
 	// Level number
 	#define MMBLevelX 32
@@ -246,15 +246,15 @@ After each set of module options are definitions that you can use to adjust the 
 // Label modules
 
 	//#define MMBASLabel
-	//#define MMBATKLabel
+	#define MMBATKLabel
 	//#define MMBAVOLabel
 	//#define MMBCHRLabel
-	//#define MMBCRTLabel
+	#define MMBCRTLabel
 	//#define MMBDEFLabel
 	//#define MMBDODLabel
-	//#define MMBEXPLabel
-	//#define MMBHITLabel
-	//#define MMBLevelLabel
+	#define MMBEXPLabel
+	#define MMBHITLabel
+	#define MMBLevelLabel
 	//#define MMBRESLabel
 	//#define MMBRTGLabel
 
@@ -270,8 +270,8 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBASLabelTileCount 2
 
 	// ATK label
-	#define MMBATKLabelX 13
-	#define MMBATKLabelY 3
+	#define MMBATKLabelX 11
+	#define MMBATKLabelY 4
 	#define MMBATKLabelVRAMTile 0x102
 	#define MMBATKLabelPaletteIndex 2
 	#define MMBATKLabelTileCount 2
@@ -291,8 +291,8 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBCHRLabelTileCount 2
 
 	// CRT label
-	#define MMBCRTLabelX 13
-	#define MMBCRTLabelY 5
+	#define MMBCRTLabelX 11
+	#define MMBCRTLabelY 6
 	#define MMBCRTLabelVRAMTile 0x108
 	#define MMBCRTLabelPaletteIndex 2
 	#define MMBCRTLabelTileCount 2
@@ -319,8 +319,8 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBEXPLabelTileCount 2
 
 	// HIT label
-	#define MMBHITLabelX 13
-	#define MMBHITLabelY 4
+	#define MMBHITLabelX 11
+	#define MMBHITLabelY 5
 	#define MMBHITLabelVRAMTile 0x10E
 	#define MMBHITLabelPaletteIndex 2
 	#define MMBHITLabelTileCount 2
@@ -349,7 +349,7 @@ After each set of module options are definitions that you can use to adjust the 
 
 ALIGN 4
 
-#include "MMB Core.event"
+#include "MMBCore.event"
 
 MESSAGE MMB code ends at CURRENTOFFSET
 

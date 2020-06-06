@@ -347,7 +347,7 @@ After each set of module options are definitions that you can use to adjust the 
 
 ALIGN 4
 
-#include "MMB Core.event"
+#include "MMBCore.event"
 
 MESSAGE MMB code ends at CURRENTOFFSET
 
