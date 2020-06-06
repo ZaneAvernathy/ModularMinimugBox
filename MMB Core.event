@@ -1,5 +1,5 @@
 
-	#include "EAStdlib.event"
+	#include "EAstdlib.event"
 	#include "Extensions/Hack Installation.txt"
 
 	#include "Internal/UI1 Proc Code.event"
