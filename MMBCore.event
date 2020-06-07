@@ -706,81 +706,81 @@
 
 	MMBBuildRoutines:
 
-	#ifdef MMBIconPrep
-		POIN MMBPrepIcons
-	#endif // MMBIconPrep
+		#ifdef MMBIconPrep
+			POIN MMBPrepIcons
+		#endif // MMBIconPrep
 
-	#ifdef MMBStandardTilemap
-		POIN MMBDrawTilemap
-	#endif // MMBStandardTilemap
+		#ifdef MMBStandardTilemap
+			POIN MMBDrawTilemap
+		#endif // MMBStandardTilemap
 
-	#ifdef MMBName
-		POIN MMBDrawNameUncentered
-	#endif // MMBName
+		#ifdef MMBName
+			POIN MMBDrawNameUncentered
+		#endif // MMBName
 
-	#ifdef MMBNameCentered
-		POIN MMBDrawNameCentered
-	#endif // MMBNameCentered
+		#ifdef MMBNameCentered
+			POIN MMBDrawNameCentered
+		#endif // MMBNameCentered
 
-	#ifdef MMBNameAffinityShifted
-		POIN MMBDrawNameAffinityShifted
-	#endif // MMBNameAffinityShifted
+		#ifdef MMBNameAffinityShifted
+			POIN MMBDrawNameAffinityShifted
+		#endif // MMBNameAffinityShifted
 
-	#ifdef MMBMinimug
-		POIN MMBDrawMinimug
-	#endif // MMBMinimug
+		#ifdef MMBMinimug
+			POIN MMBDrawMinimug
+		#endif // MMBMinimug
 
-	#ifdef MMBMinimugEnemyFlip
-		POIN MMBDrawMinimugEnemyFlip
-	#endif // MMBMinimugEnemyFlip
+		#ifdef MMBMinimugEnemyFlip
+			POIN MMBDrawMinimugEnemyFlip
+		#endif // MMBMinimugEnemyFlip
 
-	#ifdef MMBInventory
-		POIN MMBDrawInventory
-	#endif // MMBInventory
+		#ifdef MMBInventory
+			POIN MMBDrawInventory
+		#endif // MMBInventory
 
-	#ifdef MMBEquippedWeapon
-		POIN MMBDrawEquippedWeapon
-	#endif // MMBEquippedWeapon
+		#ifdef MMBEquippedWeapon
+			POIN MMBDrawEquippedWeapon
+		#endif // MMBEquippedWeapon
 
-	#ifdef MMBEquippedWeaponName
-		POIN MMBDrawEquippedWeaponName
-	#endif // MMBEquippedWeaponName
+		#ifdef MMBEquippedWeaponName
+			POIN MMBDrawEquippedWeaponName
+		#endif // MMBEquippedWeaponName
 
-	#ifdef MMBEquippedWeaponNameCentered
-		POIN MMBDrawEquippedWeaponNameCentered
-	#endif // MMBEquippedWeaponNameCentered
+		#ifdef MMBEquippedWeaponNameCentered
+			POIN MMBDrawEquippedWeaponNameCentered
+		#endif // MMBEquippedWeaponNameCentered
 
-	#ifdef MMBEquippedWeaponNameOnly
-		POIN MMBDrawEquippedWeaponNameOnly
-	#endif // MMBEquippedWeaponNameOnly
+		#ifdef MMBEquippedWeaponNameOnly
+			POIN MMBDrawEquippedWeaponNameOnly
+		#endif // MMBEquippedWeaponNameOnly
 
-	#ifdef MMBEquippedWeaponNameOnlyCentered
-		POIN MMBDrawEquippedWeaponNameOnlyCentered
-	#endif // MMBEquippedWeaponNameOnlyCentered
+		#ifdef MMBEquippedWeaponNameOnlyCentered
+			POIN MMBDrawEquippedWeaponNameOnlyCentered
+		#endif // MMBEquippedWeaponNameOnlyCentered
 
-	#ifdef MMBInventoryOrEquippedWeaponName
-		POIN MMBDrawInventoryOrEquippedWeaponName
-	#endif // MMBInventoryOrEquippedWeaponName
+		#ifdef MMBInventoryOrEquippedWeaponName
+			POIN MMBDrawInventoryOrEquippedWeaponName
+		#endif // MMBInventoryOrEquippedWeaponName
 
-	#ifdef MMBInventoryOrEquippedWeaponNameCentered
-		POIN MMBDrawInventoryOrEquippedWeaponNameCentered
-	#endif // MMBInventoryOrEquippedWeaponNameCentered
+		#ifdef MMBInventoryOrEquippedWeaponNameCentered
+			POIN MMBDrawInventoryOrEquippedWeaponNameCentered
+		#endif // MMBInventoryOrEquippedWeaponNameCentered
 
-	#ifdef MMBHPBar
-		POIN MMBDrawHPBar
-	#endif // MMBHPBar
+		#ifdef MMBHPBar
+			POIN MMBDrawHPBar
+		#endif // MMBHPBar
 
-	#ifdef MMBLabelDrawing
-		POIN MMBDrawLabelList
-	#endif // MMBLabelDrawing
+		#ifdef MMBLabelDrawing
+			POIN MMBDrawLabelList
+		#endif // MMBLabelDrawing
 
-	#ifdef MMBAffinity
-		POIN MMBDrawAffinity
-	#endif // MMBAffinity
+		#ifdef MMBAffinity
+			POIN MMBDrawAffinity
+		#endif // MMBAffinity
 
-	#ifdef MMBSkillsAlternate
-		POIN MMBDrawSkills
-	#endif // MMBSkillsAlternate
+		#ifdef MMBSkillsAlternate
+			POIN MMBDrawSkills
+		#endif // MMBSkillsAlternate
 
 	WORD 0
 
@@ -788,52 +788,52 @@
 
 	MMBDynamicRoutines:
 
-	#ifdef MMBBattleStruct
-		POIN MMBPrepStats
-	#endif // MMBBattleStruct
+		#ifdef MMBBattleStruct
+			POIN MMBPrepStats
+		#endif // MMBBattleStruct
 
-	#ifdef MMBHPStatus
-		POIN MMBDrawHPStatus
-	#endif // MMBHPStatus
+		#ifdef MMBHPStatus
+			POIN MMBDrawHPStatus
+		#endif // MMBHPStatus
 
-	#ifdef MMBHP
-		POIN MMBDrawHP
-	#endif // MMBHP
+		#ifdef MMBHP
+			POIN MMBDrawHP
+		#endif // MMBHP
 
-	#ifdef MMBDEFRES
-		POIN MMBDrawDEFRES
-	#endif // MMBDEFRES
+		#ifdef MMBDEFRES
+			POIN MMBDrawDEFRES
+		#endif // MMBDEFRES
 
-	#ifdef MMBAVODOD
-		POIN MMBDrawAVODOD
-	#endif // MMBAVODOD
+		#ifdef MMBAVODOD
+			POIN MMBDrawAVODOD
+		#endif // MMBAVODOD
 
-	#ifdef MMBLevelNumber
-		POIN MMBDrawLevelNumber
-	#endif // MMBLevelNumber
+		#ifdef MMBLevelNumber
+			POIN MMBDrawLevelNumber
+		#endif // MMBLevelNumber
 
-	#ifdef MMBEXPNumber
-		POIN MMBDrawEXPNumber
-	#endif // MMBEXPNumber
+		#ifdef MMBEXPNumber
+			POIN MMBDrawEXPNumber
+		#endif // MMBEXPNumber
 
-	#ifdef MMBNumberListDrawing
-		POIN MMBDrawNumberList
-	#endif // MMBNumberListDrawing
+		#ifdef MMBNumberListDrawing
+			POIN MMBDrawNumberList
+		#endif // MMBNumberListDrawing
 
-	#ifdef MMBAffinityObjs
-		POIN MMBDrawAffinityObjs
-	#endif // MMBAffinityObjs
+		#ifdef MMBAffinityObjs
+			POIN MMBDrawAffinityObjs
+		#endif // MMBAffinityObjs
 
-	#ifdef MMBInventoryObjs
-		POIN MMBDrawInventoryObjs
-	#endif // MMBInventoryObjs
+		#ifdef MMBInventoryObjs
+			POIN MMBDrawInventoryObjs
+		#endif // MMBInventoryObjs
 
-	#ifdef MMBSkillsAlternate
-		POIN MMBDrawSkillAlternatingObjs
-	#endif // MMBSkillsAlternate
+		#ifdef MMBSkillsAlternate
+			POIN MMBDrawSkillAlternatingObjs
+		#endif // MMBSkillsAlternate
 
-	#ifdef MMBHPBarStatus
-		POIN MMBDrawHPBarStatus
-	#endif // MMBHPBarStatus
+		#ifdef MMBHPBarStatus
+			POIN MMBDrawHPBarStatus
+		#endif // MMBHPBarStatus
 
 	WORD 0
