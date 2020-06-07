@@ -1,7 +1,7 @@
 
 .thumb
 
-.include "../Common Definitions.inc"
+.include "../CommonDefinitions.inc"
 
 MMBASGetter:
 

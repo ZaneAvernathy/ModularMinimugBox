@@ -179,7 +179,7 @@ MMB modules always have two inputs:
 * r0: A pointer to the MMB proc state
 * r1: A pointer to the selected unit's data in RAM (Most of the time)
 
-The coordinates for placing BG elements on the MMB can be found by `(2 * ((32 * YCoord) + XCoord)) + TargetBuffer` where `TargetBuffer` is either `WindowBuffer` or `WindowBufferBG1` (both definitions can be found in `Common Definitions.inc` which I recommend you include in your asm)
+The coordinates for placing BG elements on the MMB can be found by `(2 * ((32 * YCoord) + XCoord)) + TargetBuffer` where `TargetBuffer` is either `WindowBuffer` or `WindowBufferBG1` (both definitions can be found in `CommonDefinitions.inc` which I recommend you include in your asm)
 
 For drawing sprites to the MMB, it's important to get the vertical offset of the box in order to add it to the sprite's Y coordinate. Here's an example from the level number drawing module:
 
@@ -226,7 +226,7 @@ SkipBottom:
 
 Instead of turning the asm into a dmp, we turn them into elfs and include them with lyn. This is step two.
 
-In `MMB Core.event` there is a section that looks like:
+In `MMBCore.event` there is a section that looks like:
 
 ```
 
@@ -259,7 +259,7 @@ The third and final step for adding a module is to add an entry to one of two ar
 
 Build routines are run once when the MMB is being built. Dynamic routines are run every proc tick. BG elements are usually build routines, but some, like status drawing, are dynamic. Dynamic routines can have a dramatic effect on lag, so it's best to avoid heavy calculations or drawing. For example, modules that draw a unit's inventory will copy the icons to VRAM as a build routine but display the sprites using a dynamic routine, to avoid rewriting the icons every tick.
 
-To pick an array, locate them (they're at the end of `MMB Core.event`) and add something along the lines of
+To pick an array, locate them (they're at the end of `MMBCore.event`) and add something along the lines of
 
 ```
 
