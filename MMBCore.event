@@ -86,6 +86,11 @@
 		#ifdef MMBInventory
 			#include "Modules/MMBDrawInventory.lyn.event"
 			WORD MMBInventoryTileIndex
+			#ifdef HAX_ICON_REWORK
+				BYTE 0 // Item icon sheet
+			#else
+				BYTE 0 // Default icon sheet
+			#endif // HAX_ICON_REWORK
 			#ifndef MMBIconPrep
 				#define MMBIconPrep
 			#endif // MMBIconPrep
@@ -282,6 +287,11 @@
 			#include "Modules/MMBDrawAffinity.lyn.event"
 			WORD MMBAffinityTile
 			BYTE MMBAffinityX MMBAffinityY
+			#ifdef HAX_ICON_REWORK
+				BYTE 2 // Affinity icon sheet
+			#else
+				BYTE 0 // Default icon sheet
+			#endif // HAX_ICON_REWORK
 			ALIGN 4
 			#ifndef MMBIconPrep
 				#define MMBIconPrep
@@ -296,6 +306,11 @@
 		#ifdef MMBSkillsAlternate
 			#include "Modules/MMBDrawSkills.lyn.event"
 			WORD MMBSkillTile
+			#ifdef HAX_ICON_REWORK
+				BYTE 1 // Skill icon sheet
+			#else
+				BYTE 1
+			#endif // HAX_ICON_REWORK
 			#include "Modules/MMBDrawSkillAlternatingObjs.lyn.event"
 			WORD MMBHeight
 			SHORT (4 << 12) | MMBSkillTile

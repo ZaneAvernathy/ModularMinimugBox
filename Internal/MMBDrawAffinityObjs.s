@@ -83,7 +83,7 @@ SkipBottom:
 	ldrb	r0, [r4]
 	ldrb	r2, [r4, #0x01]
 	add		r1, r1, r2
-	ldr		r2, =0x08590F4C @ sprite data for a 16x16 sprite
+	ldr		r2, =SpriteData16x16 @ sprite data for a 16x16 sprite
 	bllr
 
 End:

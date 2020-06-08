@@ -11,6 +11,7 @@ MMBDrawAffinity:
 	.set MMBAffinityTile,	EALiterals + 0
 	.set MMBAffinityX,		EALiterals + 4
 	.set MMBAffinityY,		EALiterals + 5
+	.set MMBAffinitySheet,	EALiterals + 6
 
 	@ Inputs:
 	@ r0: pointer to proc state
@@ -39,6 +40,14 @@ MMBDrawAffinity:
 	blt		End
 
 	@ register icon
+
+	@ This is to comply with the icon rework
+	@ if it is installed.
+
+	ldr		r1, =MMBAffinitySheet
+	ldrb	r1, [r1]
+	lsl		r1, #8
+	orr		r0, r1
 
 	ldr		r1, MMBAffinityTile
 
@@ -89,3 +98,4 @@ EALiterals:
 	@ MMBAffinityTile
 	@ MMBAffinityX
 	@ MMBAffinityY
+	@ MMBAffinitySheet

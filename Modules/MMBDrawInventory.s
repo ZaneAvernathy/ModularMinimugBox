@@ -9,6 +9,7 @@ MMBDrawInventory:
 	.type	MMBDrawInventory, %function
 
 	.set MMBInventoryTileIndex,	EALiterals + 0
+	.set MMBItemSheet,			EALiterals + 4
 
 	@ Inputs:
 	@ r0: pointer to proc state
@@ -56,6 +57,14 @@ Loop:
 
 	ldrb	r0, [r0, #ItemDataIconID]
 
+	@ This is to comply with the icon rework
+	@ if it is installed.
+
+	ldr		r1, =MMBItemSheet
+	ldrb	r1, [r1]
+	lsl		r1, #8
+	orr		r0, r1
+
 	@ get tile index
 
 	ldr		r1, MMBInventoryTileIndex
@@ -86,3 +95,4 @@ End:
 
 EALiterals:
 	@ MMBInventoryTileIndex
+	@ MMBItemSheet

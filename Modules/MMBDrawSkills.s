@@ -9,6 +9,7 @@ MMBDrawSkills:
 	.type	MMBDrawSkills, %function
 
 	.set MMBInventoryTileIndex,	EALiterals + 0
+	.set MMBSkillSheet,			EALiterals + 4
 
 	@ Inputs:
 	@ r0: pointer to proc state
@@ -55,9 +56,12 @@ Loop:
 	cmp		r0, #0x00
 	beq		End
 
-	mov		r1, #0x01
-	lsl		r1, r1, #0x08 @ 0x100
-	orr		r0, r0, r1
+	@ Icon rework
+
+	ldr		r1, =MMBSkillSheet
+	ldrb	r1, [r1]
+	lsl		r1, #8
+	orr		r0, r1
 
 	@ get tile index
 
@@ -94,3 +98,4 @@ End:
 
 EALiterals:
 	@ MMBInventoryTileIndex
+	@ MMBSkillSheet
