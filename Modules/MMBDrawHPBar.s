@@ -17,7 +17,7 @@ MMBDrawHPBar:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r4-r6, r14}
+	push	{r4-r6, lr}
 
 	mov		r4, r1
 
@@ -39,7 +39,7 @@ MMBDrawHPBar:
 
 	mov		r0, r4
 	ldr		r1, =GetCurrentHP
-	mov		r14, r1
+	mov		lr, r1
 	bllr
 
 	@ multiply by total number of levels
@@ -56,7 +56,7 @@ MMBDrawHPBar:
 
 	mov		r0, r4
 	ldr		r1, =GetMaxHP
-	mov		r14, r1
+	mov		lr, r1
 	bllr
 
 	@ we're getting (curr * width) / max
@@ -74,7 +74,7 @@ MMBDrawHPBar:
 	ldr		r3, MMBHPBarBase
 
 	ldr		r4, =MMBDrawBar
-	mov		r14, r4
+	mov		lr, r4
 	bllr
 
 	pop		{r4-r6}

@@ -12,7 +12,7 @@ MMBDrawLabelList:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r4, r14}
+	push	{r4, lr}
 
 	@ loop through all available labels
 
@@ -51,7 +51,7 @@ Continue:
 	lsl		r2, r2, #0x05
 
 	ldr		r3, =RegisterTileGraphics
-	mov		r14, r3
+	mov		lr, r3
 	bllr
 
 	@ Next write the tilemap

@@ -19,7 +19,7 @@ MMBDrawAffinityObjs:
 	cmp		r1, #0x00
 	bne		UnitPOIN
 
-	bx r14
+	bx lr
 
 UnitPOIN:
 	mov		r2, r0
@@ -31,11 +31,11 @@ UnitPOIN:
 
 	@ else exit
 
-	bx		r14
+	bx		lr
 
 Unit:
 
-	push	{r4, r14}
+	push	{r4, lr}
 
 	mov		r4, r0
 
@@ -73,7 +73,7 @@ SkipBottom:
 	@ draw
 
 	ldr		r3, =PushToSecondaryOAM
-	mov		r14, r3
+	mov		lr, r3
 
 	mov		r3, r4
 	add		r3, #AffinityTile

@@ -14,7 +14,7 @@ MMBInit:
 	@ Inputs:
 	@ r0: Pointer to Proc state
 
-	push	{r4, r14}
+	push	{r4, lr}
 
 	mov		r4, r0
 

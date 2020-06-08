@@ -17,7 +17,7 @@ MMBDrawMinimug:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r4, r14}
+	push	{r4, lr}
 
 	add		sp, #-0x04
 
@@ -27,7 +27,7 @@ MMBDrawMinimug:
 
 	mov		r0, r1
 	ldr		r2, =GetPortraitIndex
-	mov		r14, r2
+	mov		lr, r2
 	bllr
 
 	@ Check for the "increase portrait by 1"
@@ -65,7 +65,7 @@ NotIncreased:
 	str		r0, [sp] @ flipping flag
 
 	ldr		r0, =CreateMinimug
-	mov		r14, r0
+	mov		lr, r0
 
 	mov		r0, r2
 	ldr		r2, MMBMinimugTileIndexStart

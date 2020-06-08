@@ -18,7 +18,7 @@ MMBDrawEXPLabel:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r14}
+	push	{lr}
 
 	@ Queue graphics to be written
 
@@ -34,7 +34,7 @@ MMBDrawEXPLabel:
 	mov		r2, #0x40
 
 	ldr		r3, =RegisterTileGraphics
-	mov		r14, r3
+	mov		lr, r3
 
 	bllr
 

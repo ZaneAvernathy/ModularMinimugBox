@@ -11,14 +11,14 @@ MMBRetractWindow:
 	@ Inputs:
 	@ r0: Pointer to UI1 Proc state
 
-	push	{r4-r7, r14}
+	push	{r4-r7, lr}
 
 	mov		r4, r0
 
 	@ Clear the last scrolled frame
 
 	ldr		r1, =MMBClearScrolledWindow
-	mov		r14, r1
+	mov		lr, r1
 	bllr
 
 	mov		r2, r1
@@ -27,7 +27,7 @@ MMBRetractWindow:
 
 	mov		r0, r4
 	ldr		r3, =MMBSetWindowPosition
-	mov		r14, r3
+	mov		lr, r3
 	bllr
 
 	@ get framecount, increment, and check for last frame
@@ -55,7 +55,7 @@ MMBRetractWindow:
 
 	mov		r0, r4
 	ldr		r1, =ClearProcOnCycle
-	mov		r14, r1
+	mov		lr, r1
 	bllr
 
 End:

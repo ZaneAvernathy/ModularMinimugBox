@@ -17,7 +17,7 @@ MMBDrawHPBarStatus:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r4-r6, r14}
+	push	{r4-r6, lr}
 
 	mov		r4, r0
 	mov		r5, r1
@@ -69,12 +69,12 @@ MMBDrawHPBarStatus:
 	@ Draw status image and tilemap
 
 	ldr		r2, =DrawStatus
-	mov		r14, r2
+	mov		lr, r2
 	bllr
 
 	mov		r0, #0x01
 	ldr		r1, =EnableBackgroundSyncByMask
-	mov		r14, r1
+	mov		lr, r1
 	bllr
 
 	b		End
@@ -101,7 +101,7 @@ DrawBar:
 
 	mov		r0, r4
 	ldr		r1, =GetCurrentHP
-	mov		r14, r1
+	mov		lr, r1
 	bllr
 
 	@ multiply by total number of levels
@@ -118,7 +118,7 @@ DrawBar:
 
 	mov		r0, r4
 	ldr		r1, =GetMaxHP
-	mov		r14, r1
+	mov		lr, r1
 	bllr
 
 	@ we're getting (curr * width) / max
@@ -136,7 +136,7 @@ DrawBar:
 	ldr		r3, MMBHPBarBase
 
 	ldr		r4, =MMBDrawBar
-	mov		r14, r4
+	mov		lr, r4
 	bllr
 
 End:

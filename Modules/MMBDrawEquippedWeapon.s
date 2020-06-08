@@ -14,7 +14,7 @@ MMBDrawEquippedWeapon:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r4-r5, r14}
+	push	{r4-r5, lr}
 
 	mov		r4, r0
 	mov		r5, r1
@@ -23,7 +23,7 @@ MMBDrawEquippedWeapon:
 
 	mov		r0, r1
 	ldr		r1, =GetEquippedWeapon
-	mov		r14, r1
+	mov		lr, r1
 	bllr
 
 	@ if not, end
@@ -35,7 +35,7 @@ MMBDrawEquippedWeapon:
 	and		r0, r1
 
 	ldr		r1, =GetROMItemStructPtr
-	mov		r14, r1
+	mov		lr, r1
 	bllr
 
 	@ get icon
@@ -53,7 +53,7 @@ MMBDrawEquippedWeapon:
 	add		r1, r1, r2
 
 	ldr		r2, =RegisterIconOBJ
-	mov		r14, r2
+	mov		lr, r2
 	bllr
 
 	@ Draw the item icon palette to oam palette 4
@@ -63,7 +63,7 @@ MMBDrawEquippedWeapon:
 	lsl		r1, r1, #0x05
 	mov		r2, #0x20
 	ldr		r3, =CopyToPaletteBuffer
-	mov		r14, r3
+	mov		lr, r3
 	bllr
 
 End:

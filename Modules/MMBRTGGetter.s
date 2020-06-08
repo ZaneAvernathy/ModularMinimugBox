@@ -8,7 +8,7 @@ MMBRTGGetter:
 	.global	MMBRTGGetter
 	.type	MMBRTGGetter, %function
 
-	push	{r4, r5, r14}
+	push	{r4, r5, lr}
 
 	mov		r5, r0 @ unit
 	mov		r4, #0x00 @ sum

@@ -14,7 +14,7 @@ MMBBuildWindow:
 	@ r0: Pointer to Proc State
 	@ r1: Pointer to unit in RAM
 
-	push	{r4-r6, r14}
+	push	{r4-r6, lr}
 
 	mov		r4, r0
 	mov		r5, r1
@@ -62,7 +62,7 @@ End:
 	mov		r0, r4
 	mov		r1, r5
 	ldr		r2, =MMBBuildDynamics
-	mov		r14, r2
+	mov		lr, r2
 	bllr
 
 	pop		{r4-r6}

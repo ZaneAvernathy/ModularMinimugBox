@@ -13,7 +13,7 @@ MMBDrawSignedNumber:
 	@ r1: Y Coordinate
 	@ r2: Number
 
-	push	{r4-r7, r14}
+	push	{r4-r7, lr}
 
 	mov		r4, r0
 	mov		r5, r1
@@ -36,7 +36,7 @@ Positive:
 
 	mov		r0, r2
 	ldr		r1, =WriteNumberBuffer
-	mov		r14, r1
+	mov		lr, r1
 	bllr
 
 	ldr		r6, =NumberBuffer + 7 @ Last digit in buffer
@@ -55,7 +55,7 @@ NumberLoop:
 	mov		r0, r4
 	mov		r1, r5
 	ldr		r3, =MMBDrawNumberOAM
-	mov		r14, r3
+	mov		lr, r3
 	bllr
 
 	@ Decrememnt stuff
@@ -78,7 +78,7 @@ EndLoop:
 	mov		r1, r5
 	mov		r2, #0x0A
 	ldr		r3, =MMBDrawNumberOAM
-	mov		r14, r3
+	mov		lr, r3
 	bllr
 
 NoSign:

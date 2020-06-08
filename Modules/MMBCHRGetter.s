@@ -15,12 +15,12 @@ MMBCHRGetter:
 	bge		HasCharge
 
 	mov		r0, #0xFF
-	bx		r14
+	bx		lr
 
 HasCharge:
 	mov		r1, #0x0F
 	and		r0, r1
 
-	bx		r14
+	bx		lr
 
 .ltorg

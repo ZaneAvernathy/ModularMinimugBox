@@ -14,7 +14,7 @@ MMBDrawBar:
 	@ r2: Bar size in tiles
 	@ r3: Base tile
 
-	push	{r4-r6, r14}
+	push	{r4-r6, lr}
 
 	mov		r4, r0
 	mov		r5, r1

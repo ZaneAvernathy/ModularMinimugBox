@@ -12,7 +12,7 @@ MMBBuildDynamics:
 	@ r0: Pointer to Proc State
 	@ r1: Pointer to unit in RAM
 
-	push	{r4-r6, r14}
+	push	{r4-r6, lr}
 
 	mov		r4, r0
 	mov		r5, r1

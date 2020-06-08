@@ -16,7 +16,7 @@ MMBDrawHP:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r4-r7, r14}
+	push	{r4-r7, lr}
 
 	mov		r4, r0
 	mov		r5, r1
@@ -96,7 +96,7 @@ SkipBottom:
 
 	mov		r0, r5
 	ldr		r1, =GetCurrentHP
-	mov		r14, r1
+	mov		lr, r1
 	bllr
 
 	cmp		r0, #99
@@ -113,7 +113,7 @@ SkipDashedCurrentHP:
 	mov		r1, r7
 
 	ldr		r3, =MMBDrawUnsignedNumber
-	mov		r14, r3
+	mov		lr, r3
 
 	bllr
 
@@ -121,7 +121,7 @@ SkipDashedCurrentHP:
 
 	mov		r0, r5
 	ldr		r1, =GetMaxHP
-	mov		r14, r1
+	mov		lr, r1
 	bllr
 
 	cmp		r0, #99
@@ -138,7 +138,7 @@ SkipDashedMaxHP:
 	mov		r1, r7
 
 	ldr		r3, =MMBDrawUnsignedNumber
-	mov		r14, r3
+	mov		lr, r3
 
 	bllr
 

@@ -17,7 +17,7 @@ MMBDrawMinimugEnemyFlip:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r4-r5, r14}
+	push	{r4-r5, lr}
 
 	add		sp, #-0x04
 
@@ -28,7 +28,7 @@ MMBDrawMinimugEnemyFlip:
 
 	mov		r0, r1
 	ldr		r2, =GetPortraitIndex
-	mov		r14, r2
+	mov		lr, r2
 	bllr
 
 	mov		r2, r0
@@ -81,7 +81,7 @@ NotIncreased:
 	@ draw
 
 	ldr		r0, =CreateMinimug
-	mov		r14, r0
+	mov		lr, r0
 
 	mov		r0, r2
 	ldr		r2, MMBMinimugTileIndexStart

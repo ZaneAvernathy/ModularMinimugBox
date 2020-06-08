@@ -14,7 +14,7 @@ MMBDrawInventory:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r4-r6, r14}
+	push	{r4-r6, lr}
 
 	mov		r4, r0
 	mov		r5, r1
@@ -26,7 +26,7 @@ MMBDrawInventory:
 	lsl		r1, r1, #0x05
 	mov		r2, #0x20
 	ldr		r3, =CopyToPaletteBuffer
-	mov		r14, r3
+	mov		lr, r3
 	bllr
 
 	@ loop counter
@@ -49,7 +49,7 @@ Loop:
 	cmp		r0, #0x00
 	beq		End
 	ldr		r1, =GetROMItemStructPtr
-	mov		r14, r1
+	mov		lr, r1
 	bllr
 
 	@ get icon
@@ -65,7 +65,7 @@ Loop:
 	@ draw
 
 	ldr		r2, =RegisterIconOBJ
-	mov		r14, r2
+	mov		lr, r2
 	bllr
 
 	add		r6, r6, #0x01
