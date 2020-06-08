@@ -9,7 +9,7 @@ MMBCHRGetter:
 	.type	MMBCHRGetter, %function
 
 	ldr		r0, =BattleBufAttacker
-	mov		r1, #0x47
+	mov		r1, #UnitUnknown47
 	ldrb	r0, [r0, r1]
 	cmp		r0, #0x10
 	bge		HasCharge

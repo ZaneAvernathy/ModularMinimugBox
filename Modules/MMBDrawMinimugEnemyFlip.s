@@ -36,7 +36,7 @@ MMBDrawMinimugEnemyFlip:
 	@ check if enemy
 
 	mov		r1, r5
-	mov		r0, #0x0B @ allegiance byte
+	mov		r0, #UnitDeploymentNumber @ allegiance byte
 	ldsb	r0, [r1, r0]
 	mov		r1, #0x80 @ enemy
 	and		r0, r1
@@ -54,7 +54,7 @@ Ally:
 
 	mov		r1, r5
 
-	ldr		r0, [r1, #0x0C]
+	ldr		r0, [r1, #UnitState]
 	mov		r1, #0x80
 	lsl		r1, r1, #0x10
 	and		r0, r1

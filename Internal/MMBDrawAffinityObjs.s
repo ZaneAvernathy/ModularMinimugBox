@@ -49,7 +49,7 @@ Unit:
 	@ check for lower window
 
 	mov		r0, r4
-	add		r0, #0x50
+	add		r0, #WindowPosType
 	ldrb	r0, [r0]
 	lsl		r0, r0, #0x03
 	ldr		r1, =WindowSideTable

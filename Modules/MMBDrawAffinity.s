@@ -70,7 +70,7 @@ MMBDrawAffinity:
 
 	@ draw palette
 
-	ldr		r0, =0x08599714
+	ldr		r0, =AffinityWRankPalette
 	mov		r1, #0x15
 	lsl		r1, r1, #0x05
 	mov		r2, #0x20

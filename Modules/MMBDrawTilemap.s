@@ -32,7 +32,7 @@ MMBDrawTilemap:
 	@ fetch palette based on allegiance
 
 	mov		r1, r4
-	mov		r0, #0x0B @ allegiance byte
+	mov		r0, #UnitDeploymentNumber @ allegiance byte
 	ldsb	r0, [r1, r0]
 	mov		r1, #0xC0
 	and		r0, r1

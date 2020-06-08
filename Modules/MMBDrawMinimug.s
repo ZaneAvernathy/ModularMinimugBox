@@ -36,7 +36,7 @@ MMBDrawMinimug:
 	mov		r2, r0
 	mov		r1, r4
 
-	ldr		r0, [r1, #0x0C]
+	ldr		r0, [r1, #UnitState]
 	mov		r1, #0x80
 	lsl		r1, r1, #0x10
 	and		r0, r1

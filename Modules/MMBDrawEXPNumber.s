@@ -63,7 +63,7 @@ MMBDrawEXPNumber:
 SkipBottom:
 
 	mov		r0, r5
-	ldrb	r2, [r0, #0x09]
+	ldrb	r2, [r0, #UnitExperience]
 
 	mov		r0, r6
 	mov		r1, r7

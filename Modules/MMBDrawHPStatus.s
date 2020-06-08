@@ -35,7 +35,7 @@ MMBDrawHPStatus:
 	@ Check for status
 
 	mov		r0, r5
-	add		r0, #0x30
+	add		r0, #UnitStatus
 	ldrb	r0, [r0]
 	mov		r1, #0x0F
 	and		r0, r1

@@ -31,7 +31,7 @@ MMBDrawNumberOAM:
 
 	@ OAM data for a single 8x8 sprite
 
-	ldr		r2, =0x08590F44
+	ldr		r2, =SpriteData8x8
 
 	bllr
 

@@ -22,7 +22,7 @@ MMBDrawInventoryOrEquippedWeaponName:
 
 	@ Check if unit is an enemy
 
-	ldrb	r0, [r1, #0x0B]
+	ldrb	r0, [r1, #UnitDeploymentNumber]
 	mov		r2, #0x80
 	and		r0, r2
 	cmp		r0, #0x00
@@ -54,7 +54,7 @@ Ally:
 
 	@ get icon
 
-	ldrb	r0, [r0, #0x1D]
+	ldrb	r0, [r0, #ItemDataIconID]
 
 	@ get tile index to draw to
 
@@ -77,7 +77,7 @@ Ally:
 
 	@ Draw the item icon palette to oam palette 4
 
-	ldr		r0, =0x085996F4
+	ldr		r0, =ItemIconPalette
 	mov		r1, #0x14
 	lsl		r1, r1, #0x05
 	mov		r2, #0x20
@@ -147,7 +147,7 @@ Enemy:
 
 	@ Draw the item icon palette to oam palette 4
 
-	ldr		r0, =0x085996F4
+	ldr		r0, =ItemIconPalette
 	mov		r1, #0x14
 	lsl		r1, r1, #0x05
 	mov		r2, #0x20
@@ -170,7 +170,7 @@ Loop:
 
 	mov		r0, r5
 	lsl		r1, r6, #0x01
-	add		r1, #0x1E
+	add		r1, #UnitInventory
 	ldrb	r0, [r0, r1]
 	cmp		r0, #0x00
 	beq		EndLoop
@@ -180,7 +180,7 @@ Loop:
 
 	@ get icon
 
-	ldrb	r0, [r0, #0x1D]
+	ldrb	r0, [r0, #ItemDataIconID]
 
 	@ get tile index
 

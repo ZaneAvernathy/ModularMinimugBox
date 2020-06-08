@@ -40,7 +40,7 @@ MMBDrawEquippedWeapon:
 
 	@ get icon
 
-	ldrb	r0, [r0, #0x1D]
+	ldrb	r0, [r0, #ItemDataIconID]
 
 	@ get tile index to draw to
 
@@ -58,7 +58,7 @@ MMBDrawEquippedWeapon:
 
 	@ Draw the item icon palette to oam palette 4
 
-	ldr		r0, =0x085996F4
+	ldr		r0, =ItemIconPalette
 	mov		r1, #0x14
 	lsl		r1, r1, #0x05
 	mov		r2, #0x20

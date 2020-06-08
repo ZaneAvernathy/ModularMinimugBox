@@ -95,7 +95,7 @@ Loop:
 
 	mov		r1, r6 @ Y
 
-	ldr		r2, =0x08590F4C @ sprite data for a 16x16 sprite
+	ldr		r2, =SpriteData16x16 @ sprite data for a 16x16 sprite
 	bllr
 
 	sub		r4, #0x01
