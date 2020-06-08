@@ -20,7 +20,7 @@ MMBPrepIcons:
 
 	ldr		r0, =ClearIconRegistry
 	mov		r14, r0
-	.short 0xF800
+	bllr
 
 	pop		{r0}
 	bx		r0

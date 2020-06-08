@@ -28,7 +28,7 @@ MMBDrawMinimug:
 	mov		r0, r1
 	ldr		r2, =GetPortraitIndex
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	@ Check for the "increase portrait by 1"
 	@ bit
@@ -70,7 +70,7 @@ NotIncreased:
 	mov		r0, r2
 	ldr		r2, MMBMinimugTileIndexStart
 	ldr		r3, MMBMinimugPaletteIndex
-	.short 0xF800
+	bllr
 
 	add		sp, #0x04
 

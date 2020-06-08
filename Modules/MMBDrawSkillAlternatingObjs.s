@@ -121,7 +121,7 @@ SkipBottom:
 	lsl		r4, r4, #0x01
 	add		r3, r3, r4
 	ldr		r2, =0x08590F4C @ sprite data for a 16x16 sprite
-	.short 0xF800
+	bllr
 
 End:
 	pop		{r4}

@@ -66,7 +66,7 @@ MMBSetWindowPosition:
 
 	ldr		r4, =CopyTilemapRect
 	mov		r14, r4
-	.short 0xF800
+	bllr
 
 	@ Again for BG1
 
@@ -86,7 +86,7 @@ MMBSetWindowPosition:
 
 	ldr		r4, =CopyTilemapRect
 	mov		r14, r4
-	.short 0xF800
+	bllr
 
 	b		End
 
@@ -111,7 +111,7 @@ RightWindow:
 
 	ldr		r5, =CopyTilemapRect
 	mov		r5, r14
-	.short 0xF800
+	bllr
 
 	@ Again for BG1
 
@@ -126,7 +126,7 @@ RightWindow:
 
 	ldr		r5, =CopyTilemapRect
 	mov		r14, r5
-	.short 0xF800
+	bllr
 
 End:
 	pop		{r4-r7}

@@ -27,7 +27,7 @@ MMBDrawInventory:
 	mov		r2, #0x20
 	ldr		r3, =CopyToPaletteBuffer
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 	@ loop counter
 
@@ -50,7 +50,7 @@ Loop:
 	beq		End
 	ldr		r1, =GetROMItemStructPtr
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ get icon
 
@@ -66,7 +66,7 @@ Loop:
 
 	ldr		r2, =RegisterIconOBJ
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	add		r6, r6, #0x01
 	b		Loop

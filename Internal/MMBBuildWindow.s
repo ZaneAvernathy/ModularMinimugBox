@@ -52,7 +52,7 @@ Loop:
 	mov		lr, r0
 	mov		r0, r4
 	mov		r1, r5
-	.short 0xF800
+	bllr
 	add		r6, r6, #0x04
 
 	b		Loop
@@ -63,7 +63,7 @@ End:
 	mov		r1, r5
 	ldr		r2, =MMBBuildDynamics
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	pop		{r4-r6}
 	pop		{r0}

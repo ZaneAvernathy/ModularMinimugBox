@@ -40,7 +40,7 @@ MMBDrawHPBar:
 	mov		r0, r4
 	ldr		r1, =GetCurrentHP
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ multiply by total number of levels
 
@@ -57,7 +57,7 @@ MMBDrawHPBar:
 	mov		r0, r4
 	ldr		r1, =GetMaxHP
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ we're getting (curr * width) / max
 	@ which gives us the number of filled levels
@@ -75,7 +75,7 @@ MMBDrawHPBar:
 
 	ldr		r4, =MMBDrawBar
 	mov		r14, r4
-	.short 0xF800
+	bllr
 
 	pop		{r4-r6}
 	pop		{r0}

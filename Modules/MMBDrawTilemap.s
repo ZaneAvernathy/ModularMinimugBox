@@ -27,7 +27,7 @@ MMBDrawTilemap:
 	lsl		r2, r2, #0x06
 	ldr		r3, =DrawTilemap
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 	@ fetch palette based on allegiance
 
@@ -39,7 +39,7 @@ MMBDrawTilemap:
 	ldr		r1, MMBTilemapPaletteIndex
 	ldr		r2, =GetPaletteByAllegiance
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	pop		{r4}
 	pop		{r0}

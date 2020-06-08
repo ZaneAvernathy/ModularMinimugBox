@@ -25,7 +25,7 @@ MMBDrawEquippedWeaponNameOnlyCentered:
 	mov		r0, r1
 	ldr		r1, =GetEquippedWeapon
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ if not, end
 
@@ -37,7 +37,7 @@ MMBDrawEquippedWeaponNameOnlyCentered:
 
 	ldr		r1, =GetROMItemStructPtr
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ get item name
 
@@ -45,7 +45,7 @@ MMBDrawEquippedWeaponNameOnlyCentered:
 
 	ldr		r1, =TextBufferWriter
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ save pointer to text
 
@@ -58,7 +58,7 @@ MMBDrawEquippedWeaponNameOnlyCentered:
 	ldr		r0, MMBAltTextWidth @ multiplied by 8 in EA
 	ldr		r2, =GetStringTextCenteredPos
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	mov		r7, r0
 
@@ -68,7 +68,7 @@ MMBDrawEquippedWeaponNameOnlyCentered:
 	mov		r0, r4
 	ldr		r1, =TextClear
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ we write the text info to the proc state
 
@@ -79,7 +79,7 @@ MMBDrawEquippedWeaponNameOnlyCentered:
 
 	ldr		r3, =TextSetParameters
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 	@ Write name
 
@@ -88,7 +88,7 @@ MMBDrawEquippedWeaponNameOnlyCentered:
 
 	ldr		r2, =TextAppendString
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	@ write tilemap
 
@@ -99,7 +99,7 @@ MMBDrawEquippedWeaponNameOnlyCentered:
 
 	ldr		r2, =TextDraw
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 End:
 

@@ -28,7 +28,7 @@ Loop:
 	mov		lr, r0
 	mov		r0, r4
 	mov		r1, r5
-	.short 0xF800
+	bllr
 	add		r6, r6, #0x04
 
 	b		Loop

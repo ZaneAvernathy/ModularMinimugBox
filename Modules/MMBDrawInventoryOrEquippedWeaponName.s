@@ -36,7 +36,7 @@ Ally:
 	mov		r0, r1
 	ldr		r1, =GetEquippedWeapon
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ if not, end
 
@@ -48,7 +48,7 @@ Ally:
 
 	ldr		r1, =GetROMItemStructPtr
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	mov		r6, r0
 
@@ -71,7 +71,7 @@ Ally:
 
 	ldr		r2, =RegisterIconOBJ
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	mov		r4, r5
 
@@ -83,7 +83,7 @@ Ally:
 	mov		r2, #0x20
 	ldr		r3, =CopyToPaletteBuffer
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 	@ get item name
 
@@ -92,7 +92,7 @@ Ally:
 
 	ldr		r1, =TextBufferWriter
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ save pointer to text
 
@@ -104,7 +104,7 @@ Ally:
 	mov		r0, r4
 	ldr		r1, =TextClear
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ we write the text info to the proc state
 
@@ -115,7 +115,7 @@ Ally:
 
 	ldr		r3, =TextSetParameters
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 	@ Write name
 
@@ -124,7 +124,7 @@ Ally:
 
 	ldr		r2, =TextAppendString
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	@ write tilemap
 
@@ -135,7 +135,7 @@ Ally:
 
 	ldr		r2, =TextDraw
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	b		End
 
@@ -153,7 +153,7 @@ Enemy:
 	mov		r2, #0x20
 	ldr		r3, =CopyToPaletteBuffer
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 	@ loop counter
 
@@ -176,7 +176,7 @@ Loop:
 	beq		EndLoop
 	ldr		r1, =GetROMItemStructPtr
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ get icon
 
@@ -192,7 +192,7 @@ Loop:
 
 	ldr		r2, =RegisterIconOBJ
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	add		r6, r6, #0x01
 	b		Loop

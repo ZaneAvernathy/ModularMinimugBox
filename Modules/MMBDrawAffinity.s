@@ -31,7 +31,7 @@ MMBDrawAffinity:
 	mov		r0, r1
 	ldr		r1, =GetAffinity
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ end if unit doesn't have an affinity
 
@@ -44,7 +44,7 @@ MMBDrawAffinity:
 
 	ldr		r2, =RegisterIconOBJ
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	@ set affinity flag
 
@@ -76,7 +76,7 @@ MMBDrawAffinity:
 	mov		r2, #0x20
 	ldr		r3, =CopyToPaletteBuffer
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 End:
 	pop		{r4}

@@ -1,4 +1,8 @@
 
+.macro bllr
+	.short 0xF800
+.endm
+
 @ RAM Stuff
 
 	.set BG0Buffer,				0x02022CA8

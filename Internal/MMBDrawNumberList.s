@@ -103,7 +103,7 @@ Continue:
 	@ Run the getter
 
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ draw the number
 
@@ -120,7 +120,7 @@ Continue:
 	ldr		r3, =MMBDrawUnsignedNumber
 	mov		r14, r3
 
-	.short 0xF800
+	bllr
 
 	@ inc and loop
 

@@ -36,7 +36,7 @@ MMBDrawASLabel:
 	ldr		r3, =RegisterTileGraphics
 	mov		r14, r3
 
-	.short 0xF800
+	bllr
 
 	@ Get tilemap position
 

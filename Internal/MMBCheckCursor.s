@@ -30,7 +30,7 @@ MMBCheckCursor:
 
 	ldr		r0, =MMBGetUnitAtCursor
 	mov		r14, r0
-	.short 0xF800
+	bllr
 
 	@ save x, y
 
@@ -39,7 +39,7 @@ MMBCheckCursor:
 
 	ldr		r1, =GetDeploymentSlot
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ save unit
 
@@ -52,7 +52,7 @@ MMBCheckCursor:
 
 	ldr		r2, =MMBBuildDynamics
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	@ Check if we need to redraw
 
@@ -65,7 +65,7 @@ MMBCheckCursor:
 	mov		r0, r4
 	ldr		r1, =MMBRedrawTilemap
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 NoRedraw:
 
@@ -110,7 +110,7 @@ NoRedraw:
 	ldr		r0, =ProcGENS
 	ldr		r1, =FindProc
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	cmp		r0, #0x00
 	bne		KillOnCycle
@@ -119,7 +119,7 @@ NoRedraw:
 
 	ldr		r0, =WindowPosCheck
 	mov		r14, r0
-	.short 0xF800
+	bllr
 
 	mov		r2, r0
 	mov		r0, r4
@@ -162,7 +162,7 @@ SamePosition:
 	mov		r1, #0x01
 	ldr		r2, =GotoProcLabel
 	mov		r14, r2
-	.short 0xF800
+	bllr
 	b		End
 
 .ltorg
@@ -177,7 +177,7 @@ KillOnCycle:
 	strb	r1, [r4]
 	ldr		r1, =ClearProcOnCycle
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 End:
 	pop		{r4-r7}

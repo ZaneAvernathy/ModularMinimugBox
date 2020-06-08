@@ -44,14 +44,14 @@ WriteStruct:
 
 	ldr		r1, =GetEquippedWeaponSlot
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	mov		r1, r0
 	mov		r0, r4
 
 	ldr		r2, =SetupBattleStructUnitWeapon
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	pop		{r4}
 	pop		{r0}

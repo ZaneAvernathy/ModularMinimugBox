@@ -29,7 +29,7 @@ MMBDrawMinimugEnemyFlip:
 	mov		r0, r1
 	ldr		r2, =GetPortraitIndex
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	mov		r2, r0
 
@@ -86,7 +86,7 @@ NotIncreased:
 	mov		r0, r2
 	ldr		r2, MMBMinimugTileIndexStart
 	ldr		r3, MMBMinimugPaletteIndex
-	.short 0xF800
+	bllr
 
 	add		sp, #0x04
 

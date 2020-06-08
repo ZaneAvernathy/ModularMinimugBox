@@ -71,7 +71,7 @@ SkipBottom:
 	ldr		r3, =MMBDrawUnsignedNumber
 	mov		r14, r3
 
-	.short 0xF800
+	bllr
 
 End:
 

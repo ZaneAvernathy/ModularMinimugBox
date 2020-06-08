@@ -33,7 +33,7 @@ MMBDrawNumberOAM:
 
 	ldr		r2, =0x08590F44
 
-	.short 0xF800
+	bllr
 
 	pop		{r0}
 	bx		r0

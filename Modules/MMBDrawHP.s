@@ -97,7 +97,7 @@ SkipBottom:
 	mov		r0, r5
 	ldr		r1, =GetCurrentHP
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	cmp		r0, #99
 	ble		SkipDashedCurrentHP
@@ -115,14 +115,14 @@ SkipDashedCurrentHP:
 	ldr		r3, =MMBDrawUnsignedNumber
 	mov		r14, r3
 
-	.short 0xF800
+	bllr
 
 	add		r6, r6, #25
 
 	mov		r0, r5
 	ldr		r1, =GetMaxHP
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	cmp		r0, #99
 	ble		SkipDashedMaxHP
@@ -140,7 +140,7 @@ SkipDashedMaxHP:
 	ldr		r3, =MMBDrawUnsignedNumber
 	mov		r14, r3
 
-	.short 0xF800
+	bllr
 
 End:
 

@@ -79,7 +79,7 @@ SkipRightWindow:
 	mov		r3, #0x00
 	ldr		r4, =FillTilemapRect
 	mov		r14, r4
-	.short 0xF800
+	bllr
 
 	ldr		r0, =BG1Buffer
 	add		r0, r0, r5
@@ -87,14 +87,14 @@ SkipRightWindow:
 	add		r0, r0, r4
 	ldr		r4, =FillTilemapRect
 	mov		r14, r4
-	.short 0xF800
+	bllr
 
 	@ Set that tilemaps have been edited
 
 	mov		r0, #0x03
 	ldr		r1, =EnableBackgroundSyncByMask
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ Let's return the coords of the window to
 	@ make things nice

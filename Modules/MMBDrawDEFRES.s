@@ -61,7 +61,7 @@ DrawDef:
 	ldr		r3, =RegisterTileGraphics
 	mov		r14, r3
 
-	.short 0xF800
+	bllr
 
 	ldr		r0, MMBDEFRESBGPos
 	ldr		r1, =WindowBuffer
@@ -87,7 +87,7 @@ DrawDef:
 
 	mov		r0, r5
 	mov		r14, r6
-	.short 0xF800
+	bllr
 
 	mov		r2, r0
 	ldr		r1, =MMBDEFRESX
@@ -114,7 +114,7 @@ SkipBottom:
 
 	ldr		r3, =MMBDrawSignedNumber
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 End:
 	pop		{r4-r6}

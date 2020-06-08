@@ -70,12 +70,12 @@ MMBDrawHPBarStatus:
 
 	ldr		r2, =DrawStatus
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	mov		r0, #0x01
 	ldr		r1, =EnableBackgroundSyncByMask
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	b		End
 
@@ -102,7 +102,7 @@ DrawBar:
 	mov		r0, r4
 	ldr		r1, =GetCurrentHP
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ multiply by total number of levels
 
@@ -119,7 +119,7 @@ DrawBar:
 	mov		r0, r4
 	ldr		r1, =GetMaxHP
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ we're getting (curr * width) / max
 	@ which gives us the number of filled levels
@@ -137,7 +137,7 @@ DrawBar:
 
 	ldr		r4, =MMBDrawBar
 	mov		r14, r4
-	.short 0xF800
+	bllr
 
 End:
 

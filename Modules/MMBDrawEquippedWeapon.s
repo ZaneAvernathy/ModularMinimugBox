@@ -24,7 +24,7 @@ MMBDrawEquippedWeapon:
 	mov		r0, r1
 	ldr		r1, =GetEquippedWeapon
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ if not, end
 
@@ -36,7 +36,7 @@ MMBDrawEquippedWeapon:
 
 	ldr		r1, =GetROMItemStructPtr
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ get icon
 
@@ -54,7 +54,7 @@ MMBDrawEquippedWeapon:
 
 	ldr		r2, =RegisterIconOBJ
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	@ Draw the item icon palette to oam palette 4
 
@@ -64,7 +64,7 @@ MMBDrawEquippedWeapon:
 	mov		r2, #0x20
 	ldr		r3, =CopyToPaletteBuffer
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 End:
 

@@ -84,7 +84,7 @@ SkipBottom:
 	ldrb	r2, [r4, #0x01]
 	add		r1, r1, r2
 	ldr		r2, =0x08590F4C @ sprite data for a 16x16 sprite
-	.short 0xF800
+	bllr
 
 End:
 	pop		{r4}

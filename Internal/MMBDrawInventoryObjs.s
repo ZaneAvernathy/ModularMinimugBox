@@ -96,7 +96,7 @@ Loop:
 	mov		r1, r6 @ Y
 
 	ldr		r2, =0x08590F4C @ sprite data for a 16x16 sprite
-	.short 0xF800
+	bllr
 
 	sub		r4, #0x01
 	b		Loop

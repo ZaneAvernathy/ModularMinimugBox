@@ -12,7 +12,7 @@ MMBRESGetter:
 
 	ldr		r3, =GetRes
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 	pop		{r1}
 	bx		r1

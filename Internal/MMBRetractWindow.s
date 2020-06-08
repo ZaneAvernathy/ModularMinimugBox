@@ -19,7 +19,7 @@ MMBRetractWindow:
 
 	ldr		r1, =MMBClearScrolledWindow
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	mov		r2, r1
 
@@ -28,7 +28,7 @@ MMBRetractWindow:
 	mov		r0, r4
 	ldr		r3, =MMBSetWindowPosition
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 	@ get framecount, increment, and check for last frame
 
@@ -56,7 +56,7 @@ MMBRetractWindow:
 	mov		r0, r4
 	ldr		r1, =ClearProcOnCycle
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 End:
 	pop		{r4-r7}

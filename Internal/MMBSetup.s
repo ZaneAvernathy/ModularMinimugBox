@@ -19,11 +19,11 @@ MMBSetup:
 
 	ldr		r0, =MMBGetUnitAtCursor
 	mov		r14, r0
-	.short 0xF800
+	bllr
 
 	ldr		r1, =GetDeploymentSlot
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	cmp		r0, #0x00
 	beq		End
@@ -43,7 +43,7 @@ MMBSetup:
 
 	ldr		r0, =WindowPosCheck
 	mov		r14, r0
-	.short 0xF800
+	bllr
 
 	@ Save this for later
 
@@ -61,7 +61,7 @@ MMBSetup:
 	asr		r1, r1, #0x18 @ r1 Y, -1 up 1 down
 	ldr		r2, =WindowSideCheck
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	@ save the window side for later
 
@@ -72,7 +72,7 @@ MMBSetup:
 	ldr		r0, =ProcTI
 	ldr		r1, =FindProc
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	cmp		r0, #0x00
 	beq		TerrainNotDrawn
@@ -97,7 +97,7 @@ TerrainNotDrawn:
 
 	ldr		r0, =MMBGetUnitAtCursor
 	mov		r14, r0
-	.short 0xF800
+	bllr
 
 	mov		r0, r4
 	add		r0, #CursorX
@@ -114,7 +114,7 @@ TerrainNotDrawn:
 	mov		r1, r6
 	ldr		r2, =MMBBuildWindow
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	@ Once we've drawn things on the box
 	@ and the terrain window is set
@@ -123,7 +123,7 @@ TerrainNotDrawn:
 	mov		r0, r4
 	ldr		r1, =ClearProcOnCycle
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 End:
 	pop		{r4-r6}

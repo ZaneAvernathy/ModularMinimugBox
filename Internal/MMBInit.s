@@ -32,14 +32,14 @@ MMBInit:
 	ldr		r1, MMBTextStruct1Width
 	ldr		r3, =TextAllocate
 	mov		lr, r3
-	.short 0xF800
+	bllr
 
 	mov		r0, r4
 	add		r0, #AltTextStructStart
 	ldr		r1, MMBTextStruct2Width
 	ldr		r3, =TextAllocate
 	mov		lr, r3
-	.short 0xF800
+	bllr
 
 	@ Clear framecount
 

@@ -58,12 +58,12 @@ SkipLowerWindow:
 	ldr		r2, MMBWidth
 	ldr		r3, MMBHeight
 
-	.short 0xF800
+	bllr
 
 	mov		r0,#0x3 @ update BG0 and BG1
 	ldr		r1, =EnableBackgroundSyncByMask
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	pop		{r0}
 	bx		r0

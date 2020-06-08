@@ -30,7 +30,7 @@ MMBDrawNameUncentered:
 
 	ldr		r1, =TextBufferWriter
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ save pointer to text
 
@@ -41,7 +41,7 @@ MMBDrawNameUncentered:
 	mov		r0, r4
 	ldr		r1, =TextClear
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ we write the text info to the proc state
 
@@ -51,7 +51,7 @@ MMBDrawNameUncentered:
 
 	ldr		r3, =TextSetParameters
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 	@ Write name
 
@@ -60,7 +60,7 @@ MMBDrawNameUncentered:
 
 	ldr		r2, =TextAppendString
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	@ write tilemap
 
@@ -74,7 +74,7 @@ MMBDrawNameUncentered:
 	mov		r0, r4
 	ldr		r2, =TextDraw
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	pop		{r4-r6}
 	pop		{r0}

@@ -37,7 +37,7 @@ Positive:
 	mov		r0, r2
 	ldr		r1, =WriteNumberBuffer
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	ldr		r6, =NumberBuffer + 7 @ Last digit in buffer
 
@@ -56,7 +56,7 @@ NumberLoop:
 	mov		r1, r5
 	ldr		r3, =MMBDrawNumberOAM
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 	@ Decrememnt stuff
 
@@ -79,7 +79,7 @@ EndLoop:
 	mov		r2, #0x0A
 	ldr		r3, =MMBDrawNumberOAM
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 NoSign:
 

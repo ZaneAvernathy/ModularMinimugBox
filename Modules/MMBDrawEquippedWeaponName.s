@@ -25,7 +25,7 @@ MMBDrawEquippedWeaponName:
 	mov		r0, r1
 	ldr		r1, =GetEquippedWeapon
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ if not, end
 
@@ -37,7 +37,7 @@ MMBDrawEquippedWeaponName:
 
 	ldr		r1, =GetROMItemStructPtr
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	mov		r6, r0
 
@@ -60,7 +60,7 @@ MMBDrawEquippedWeaponName:
 
 	ldr		r2, =RegisterIconOBJ
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	mov		r4, r5
 
@@ -72,7 +72,7 @@ MMBDrawEquippedWeaponName:
 	mov		r2, #0x20
 	ldr		r3, =CopyToPaletteBuffer
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 	@ get item name
 
@@ -81,7 +81,7 @@ MMBDrawEquippedWeaponName:
 
 	ldr		r1, =TextBufferWriter
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ save pointer to text
 
@@ -93,7 +93,7 @@ MMBDrawEquippedWeaponName:
 	mov		r0, r4
 	ldr		r1, =TextClear
 	mov		r14, r1
-	.short 0xF800
+	bllr
 
 	@ we write the text info to the proc state
 
@@ -104,7 +104,7 @@ MMBDrawEquippedWeaponName:
 
 	ldr		r3, =TextSetParameters
 	mov		r14, r3
-	.short 0xF800
+	bllr
 
 	@ Write name
 
@@ -113,7 +113,7 @@ MMBDrawEquippedWeaponName:
 
 	ldr		r2, =TextAppendString
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 	@ write tilemap
 
@@ -124,7 +124,7 @@ MMBDrawEquippedWeaponName:
 
 	ldr		r2, =TextDraw
 	mov		r14, r2
-	.short 0xF800
+	bllr
 
 End:
 
