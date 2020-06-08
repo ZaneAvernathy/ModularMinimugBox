@@ -22,7 +22,7 @@ MMBDrawSkillAlternatingObjs:
 	cmp		r1, #0x00
 	bne		UnitPOIN
 
-	bx r14
+	bx lr
 
 UnitPOIN:
 	mov		r2, r0
@@ -34,11 +34,11 @@ UnitPOIN:
 
 	@ else exit
 
-	bx		r14
+	bx		lr
 
 Unit:
 
-	push	{r4, r14}
+	push	{r4, lr}
 
 	mov		r4, r0
 
@@ -84,7 +84,7 @@ NoChange:
 	@ check for lower window
 
 	mov		r0, r4
-	add		r0, #0x50
+	add		r0, #WindowPosType
 	ldrb	r0, [r0]
 	lsl		r0, r0, #0x03
 	ldr		r1, =WindowSideTable
@@ -108,7 +108,7 @@ SkipBottom:
 	@ draw
 
 	ldr		r3, =PushToSecondaryOAM
-	mov		r14, r3
+	mov		lr, r3
 
 	ldr		r0, =MMBSkillTile
 	ldrh	r3, [r0]
@@ -120,8 +120,8 @@ SkipBottom:
 	ldrb	r4, [r4]
 	lsl		r4, r4, #0x01
 	add		r3, r3, r4
-	ldr		r2, =0x08590F4C @ sprite data for a 16x16 sprite
-	.short 0xF800
+	ldr		r2, =SpriteData16x16 @ sprite data for a 16x16 sprite
+	bllr
 
 End:
 	pop		{r4}

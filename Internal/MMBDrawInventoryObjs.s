@@ -22,7 +22,7 @@ MMBDrawInventoryObjs:
 	cmp		r1, #0x00
 	bne		UnitPOIN
 
-	bx r14
+	bx lr
 
 UnitPOIN:
 	mov		r2, r0
@@ -34,11 +34,11 @@ UnitPOIN:
 
 	@ else exit
 
-	bx		r14
+	bx		lr
 
 Unit:
 
-	push	{r4-r7, r14}
+	push	{r4-r7, lr}
 
 	mov		r4, r0
 	add		r4, #OAMCount
@@ -83,7 +83,7 @@ Loop:
 	blt		End
 
 	ldr		r3, =PushToSecondaryOAM
-	mov		r14, r3
+	mov		lr, r3
 
 	@ Get X coord and tile
 
@@ -95,8 +95,8 @@ Loop:
 
 	mov		r1, r6 @ Y
 
-	ldr		r2, =0x08590F4C @ sprite data for a 16x16 sprite
-	.short 0xF800
+	ldr		r2, =SpriteData16x16 @ sprite data for a 16x16 sprite
+	bllr
 
 	sub		r4, #0x01
 	b		Loop

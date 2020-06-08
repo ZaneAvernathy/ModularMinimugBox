@@ -16,7 +16,7 @@ MMBSetWindowPosition:
 	@ r1: Pointer to extend/retract table
 	@ r2: Y coordinate of box
 
-	push	{r4-r7, r14}
+	push	{r4-r7, lr}
 
 	mov		r4, r0
 
@@ -65,8 +65,8 @@ MMBSetWindowPosition:
 	ldr		r3, MMBHeight
 
 	ldr		r4, =CopyTilemapRect
-	mov		r14, r4
-	.short 0xF800
+	mov		lr, r4
+	bllr
 
 	@ Again for BG1
 
@@ -85,8 +85,8 @@ MMBSetWindowPosition:
 	ldr		r3, MMBHeight
 
 	ldr		r4, =CopyTilemapRect
-	mov		r14, r4
-	.short 0xF800
+	mov		lr, r4
+	bllr
 
 	b		End
 
@@ -110,8 +110,8 @@ RightWindow:
 	ldr		r3, MMBHeight
 
 	ldr		r5, =CopyTilemapRect
-	mov		r5, r14
-	.short 0xF800
+	mov		r5, lr
+	bllr
 
 	@ Again for BG1
 
@@ -125,8 +125,8 @@ RightWindow:
 	ldr		r3, MMBHeight
 
 	ldr		r5, =CopyTilemapRect
-	mov		r14, r5
-	.short 0xF800
+	mov		lr, r5
+	bllr
 
 End:
 	pop		{r4-r7}

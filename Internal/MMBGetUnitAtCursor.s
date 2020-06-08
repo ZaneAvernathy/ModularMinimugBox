@@ -16,7 +16,7 @@ MMBGetUnitAtCursor:
 	@ r1: X coordinate
 	@ r2: Y coordinate
 
-	push	{r14}
+	push	{lr}
 
 	@ See Teq's Doc for info about this
 	@ Grab cursor coordinates

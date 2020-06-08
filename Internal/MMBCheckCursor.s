@@ -11,7 +11,7 @@ MMBCheckCursor:
 	@ Inputs:
 	@ r0: Pointer to UI1 Proc State
 
-	push	{r4-r7, r14}
+	push	{r4-r7, lr}
 
 	mov		r4, r0
 
@@ -29,8 +29,8 @@ MMBCheckCursor:
 	@ Grab unit
 
 	ldr		r0, =MMBGetUnitAtCursor
-	mov		r14, r0
-	.short 0xF800
+	mov		lr, r0
+	bllr
 
 	@ save x, y
 
@@ -38,8 +38,8 @@ MMBCheckCursor:
 	mov		r7, r2
 
 	ldr		r1, =GetDeploymentSlot
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	@ save unit
 
@@ -51,8 +51,8 @@ MMBCheckCursor:
 	mov		r1, r5
 
 	ldr		r2, =MMBBuildDynamics
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	@ Check if we need to redraw
 
@@ -64,8 +64,8 @@ MMBCheckCursor:
 
 	mov		r0, r4
 	ldr		r1, =MMBRedrawTilemap
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 NoRedraw:
 
@@ -109,8 +109,8 @@ NoRedraw:
 
 	ldr		r0, =ProcGENS
 	ldr		r1, =FindProc
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	cmp		r0, #0x00
 	bne		KillOnCycle
@@ -118,8 +118,8 @@ NoRedraw:
 	@ Next, check if we need to move the box
 
 	ldr		r0, =WindowPosCheck
-	mov		r14, r0
-	.short 0xF800
+	mov		lr, r0
+	bllr
 
 	mov		r2, r0
 	mov		r0, r4
@@ -161,8 +161,8 @@ SamePosition:
 	mov		r0, r4
 	mov		r1, #0x01
 	ldr		r2, =GotoProcLabel
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 	b		End
 
 .ltorg
@@ -176,8 +176,8 @@ KillOnCycle:
 	mov		r1, #0x01
 	strb	r1, [r4]
 	ldr		r1, =ClearProcOnCycle
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 End:
 	pop		{r4-r7}

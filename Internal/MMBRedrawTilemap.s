@@ -14,7 +14,7 @@ MMBRedrawTilemap:
 	@ Inputs:
 	@ r0: Pointer to Proc state
 
-	push	{r14}
+	push	{lr}
 
 	ldr		r1, =WindowSideTable
 	add		r0, #0x50 @ window position type
@@ -47,7 +47,7 @@ SkipRightWindow:
 SkipLowerWindow:
 
 	ldr		r0, =CopyTilemapRect
-	mov		r14, r0
+	mov		lr, r0
 
 	ldr		r0, =WindowBuffer
 	lsl		r1, r1, #0x05
@@ -58,12 +58,12 @@ SkipLowerWindow:
 	ldr		r2, MMBWidth
 	ldr		r3, MMBHeight
 
-	.short 0xF800
+	bllr
 
 	mov		r0,#0x3 @ update BG0 and BG1
 	ldr		r1, =EnableBackgroundSyncByMask
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	pop		{r0}
 	bx		r0

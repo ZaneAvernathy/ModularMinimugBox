@@ -15,7 +15,7 @@ MMBPrepStats:
 	cmp		r1, #0x00
 	bne		Unit
 
-	bx		r14
+	bx		lr
 
 Unit:
 
@@ -27,14 +27,14 @@ Unit:
 	cmp		r3, #0x00
 	beq		WriteStruct
 
-	bx		r14
+	bx		lr
 
 WriteStruct:
 
 	mov		r3, #0x01
 	strb	r3, [r2]
 
-	push	{r4, r14}
+	push	{r4, lr}
 
 	@ save unit
 
@@ -43,15 +43,15 @@ WriteStruct:
 	mov		r0, r1
 
 	ldr		r1, =GetEquippedWeaponSlot
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	mov		r1, r0
 	mov		r0, r4
 
 	ldr		r2, =SetupBattleStructUnitWeapon
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	pop		{r4}
 	pop		{r0}

@@ -14,20 +14,20 @@ MMBDrawInventory:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r4-r6, r14}
+	push	{r4-r6, lr}
 
 	mov		r4, r0
 	mov		r5, r1
 
 	@ Draw the item icon palette to oam palette 4
 
-	ldr		r0, =0x085996F4
+	ldr		r0, =ItemIconPalette
 	mov		r1, #0x14
 	lsl		r1, r1, #0x05
 	mov		r2, #0x20
 	ldr		r3, =CopyToPaletteBuffer
-	mov		r14, r3
-	.short 0xF800
+	mov		lr, r3
+	bllr
 
 	@ loop counter
 
@@ -44,17 +44,17 @@ Loop:
 
 	mov		r0, r5
 	lsl		r1, r6, #0x01
-	add		r1, #0x1E
+	add		r1, #UnitInventory
 	ldrb	r0, [r0, r1]
 	cmp		r0, #0x00
 	beq		End
 	ldr		r1, =GetROMItemStructPtr
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	@ get icon
 
-	ldrb	r0, [r0, #0x1D]
+	ldrb	r0, [r0, #ItemDataIconID]
 
 	@ get tile index
 
@@ -65,8 +65,8 @@ Loop:
 	@ draw
 
 	ldr		r2, =RegisterIconOBJ
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	add		r6, r6, #0x01
 	b		Loop

@@ -13,13 +13,13 @@ MMBDrawNumberOAM:
 	@ r1: Y coordinate
 	@ r2: Number
 
-	push	{r14}
+	push	{lr}
 
 	@ We'll need all scratch registers,
 	@ so we set lr first
 
 	ldr		r3, =PushToSecondaryOAM
-	mov		r14, r3
+	mov		lr, r3
 
 	@ add number to base
 	@ 0-9 in r2 is the number
@@ -31,9 +31,9 @@ MMBDrawNumberOAM:
 
 	@ OAM data for a single 8x8 sprite
 
-	ldr		r2, =0x08590F44
+	ldr		r2, =SpriteData8x8
 
-	.short 0xF800
+	bllr
 
 	pop		{r0}
 	bx		r0

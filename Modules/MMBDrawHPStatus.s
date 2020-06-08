@@ -16,7 +16,7 @@ MMBDrawHPStatus:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r4-r7, r14}
+	push	{r4-r7, lr}
 
 	mov		r4, r0
 	mov		r5, r1
@@ -35,7 +35,7 @@ MMBDrawHPStatus:
 	@ Check for status
 
 	mov		r0, r5
-	add		r0, #0x30
+	add		r0, #UnitStatus
 	ldrb	r0, [r0]
 	mov		r1, #0x0F
 	and		r0, r1
@@ -68,13 +68,13 @@ MMBDrawHPStatus:
 	@ Draw status image and tilemap
 
 	ldr		r2, =DrawStatus
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	mov		r0, #0x01
 	ldr		r1, =EnableBackgroundSyncByMask
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	b		End
 
@@ -155,8 +155,8 @@ SkipBottom:
 
 	mov		r0, r5
 	ldr		r1, =GetCurrentHP
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	cmp		r0, #99
 	ble		SkipDashedCurrentHP
@@ -172,16 +172,16 @@ SkipDashedCurrentHP:
 	mov		r1, r7
 
 	ldr		r3, =MMBDrawUnsignedNumber
-	mov		r14, r3
+	mov		lr, r3
 
-	.short 0xF800
+	bllr
 
 	add		r6, r6, #25
 
 	mov		r0, r5
 	ldr		r1, =GetMaxHP
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	cmp		r0, #99
 	ble		SkipDashedMaxHP
@@ -197,9 +197,9 @@ SkipDashedMaxHP:
 	mov		r1, r7
 
 	ldr		r3, =MMBDrawUnsignedNumber
-	mov		r14, r3
+	mov		lr, r3
 
-	.short 0xF800
+	bllr
 
 End:
 

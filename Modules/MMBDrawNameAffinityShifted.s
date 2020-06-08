@@ -16,7 +16,7 @@ MMBDrawNameAffinityShifted:
 	@ r0: Pointer to Proc State
 	@ r1: Pointer to unit in RAM
 
-	push	{r4-r6, r14}
+	push	{r4-r6, lr}
 
 	add		r0, #NameTextStructStart
 	mov		r4, r0
@@ -29,8 +29,8 @@ MMBDrawNameAffinityShifted:
 	ldrh	r0, [r0]
 
 	ldr		r1, =TextBufferWriter
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	@ save pointer to text
 
@@ -40,8 +40,8 @@ MMBDrawNameAffinityShifted:
 
 	mov		r0, r4
 	ldr		r1, =TextClear
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	@ we write the text info to the proc state
 
@@ -50,8 +50,8 @@ MMBDrawNameAffinityShifted:
 	ldr		r2, MMBTextColor
 
 	ldr		r3, =TextSetParameters
-	mov		r14, r3
-	.short 0xF800
+	mov		lr, r3
+	bllr
 
 	@ Write name
 
@@ -59,15 +59,15 @@ MMBDrawNameAffinityShifted:
 	mov		r1, r6
 
 	ldr		r2, =TextAppendString
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	@ check if unit has affinity
 
 	mov		r0, r5
 	ldr		r1, =GetAffinity
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	ldr		r2, MMBNameXCoordinate
 
@@ -88,8 +88,8 @@ NoAffinity:
 	add		r1, r1, r2
 	mov		r0, r4
 	ldr		r2, =TextDraw
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	pop		{r4-r6}
 	pop		{r0}

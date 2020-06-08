@@ -17,7 +17,7 @@ MMBDrawNameCentered:
 	@ r0: Pointer to MMB Proc State
 	@ r1: Pointer to unit in RAM
 
-	push	{r4-r7, r14}
+	push	{r4-r7, lr}
 
 	add		r0, #NameTextStructStart
 	mov		r4, r0
@@ -30,8 +30,8 @@ MMBDrawNameCentered:
 	ldrh	r0, [r0]
 
 	ldr		r1, =TextBufferWriter
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	@ save resulting width for later
 
@@ -40,8 +40,8 @@ MMBDrawNameCentered:
 
 	ldr		r0, MMBTextWidth @ multiplied by 8 in EA
 	ldr		r2, =GetStringTextCenteredPos
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	@ save resulting padding distance
 
@@ -51,8 +51,8 @@ MMBDrawNameCentered:
 
 	mov		r0, r4
 	ldr		r1, =TextClear
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	@ we write the text info to the proc state
 
@@ -61,8 +61,8 @@ MMBDrawNameCentered:
 	ldr		r2, MMBTextColor
 
 	ldr		r3, =TextSetParameters
-	mov		r14, r3
-	.short 0xF800
+	mov		lr, r3
+	bllr
 
 	@ Write name
 
@@ -70,8 +70,8 @@ MMBDrawNameCentered:
 	mov		r1, r6
 
 	ldr		r2, =TextAppendString
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	@ write tilemap
 
@@ -84,8 +84,8 @@ MMBDrawNameCentered:
 	add		r1, r1, r2
 	mov		r0, r4
 	ldr		r2, =TextDraw
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	pop		{r4-r7}
 	pop		{r0}

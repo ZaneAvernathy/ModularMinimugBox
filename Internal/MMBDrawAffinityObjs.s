@@ -19,7 +19,7 @@ MMBDrawAffinityObjs:
 	cmp		r1, #0x00
 	bne		UnitPOIN
 
-	bx r14
+	bx lr
 
 UnitPOIN:
 	mov		r2, r0
@@ -31,11 +31,11 @@ UnitPOIN:
 
 	@ else exit
 
-	bx		r14
+	bx		lr
 
 Unit:
 
-	push	{r4, r14}
+	push	{r4, lr}
 
 	mov		r4, r0
 
@@ -49,7 +49,7 @@ Unit:
 	@ check for lower window
 
 	mov		r0, r4
-	add		r0, #0x50
+	add		r0, #WindowPosType
 	ldrb	r0, [r0]
 	lsl		r0, r0, #0x03
 	ldr		r1, =WindowSideTable
@@ -73,7 +73,7 @@ SkipBottom:
 	@ draw
 
 	ldr		r3, =PushToSecondaryOAM
-	mov		r14, r3
+	mov		lr, r3
 
 	mov		r3, r4
 	add		r3, #AffinityTile
@@ -84,7 +84,7 @@ SkipBottom:
 	ldrb	r2, [r4, #0x01]
 	add		r1, r1, r2
 	ldr		r2, =0x08590F4C @ sprite data for a 16x16 sprite
-	.short 0xF800
+	bllr
 
 End:
 	pop		{r4}

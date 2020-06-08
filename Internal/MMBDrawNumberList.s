@@ -20,7 +20,7 @@ MMBDrawNumberList:
 	cmp		r1, #0x00
 	bne		UnitPOIN
 
-	bx r14
+	bx lr
 
 UnitPOIN:
 	mov		r2, r0
@@ -32,7 +32,7 @@ UnitPOIN:
 
 	@ else exit
 
-	bx		r14
+	bx		lr
 
 Unit:
 	mov		r2, r0
@@ -41,11 +41,11 @@ Unit:
 	cmp		r2, #0x00
 	bne		Start
 
-	bx		r14
+	bx		lr
 
 Start:
 
-	push	{r4-r6, r14}
+	push	{r4-r6, lr}
 
 	mov		r6, r1
 
@@ -102,8 +102,8 @@ Continue:
 
 	@ Run the getter
 
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	@ draw the number
 
@@ -118,9 +118,9 @@ Continue:
 	@ be set if the number's negative
 
 	ldr		r3, =MMBDrawUnsignedNumber
-	mov		r14, r3
+	mov		lr, r3
 
-	.short 0xF800
+	bllr
 
 	@ inc and loop
 

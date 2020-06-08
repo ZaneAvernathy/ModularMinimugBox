@@ -18,7 +18,7 @@ MMBClearScrolledWindow:
 	@ r0: X coordinate of box
 	@ r1: Y coordinate of box
 
-	push	{r4-r7, r14}
+	push	{r4-r7, lr}
 
 	@ Grab window side type
 
@@ -78,23 +78,23 @@ SkipRightWindow:
 	ldr		r2, MMBHeight
 	mov		r3, #0x00
 	ldr		r4, =FillTilemapRect
-	mov		r14, r4
-	.short 0xF800
+	mov		lr, r4
+	bllr
 
 	ldr		r0, =BG1Buffer
 	add		r0, r0, r5
 	lsl		r4, r6, #0x02
 	add		r0, r0, r4
 	ldr		r4, =FillTilemapRect
-	mov		r14, r4
-	.short 0xF800
+	mov		lr, r4
+	bllr
 
 	@ Set that tilemaps have been edited
 
 	mov		r0, #0x03
 	ldr		r1, =EnableBackgroundSyncByMask
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	@ Let's return the coords of the window to
 	@ make things nice

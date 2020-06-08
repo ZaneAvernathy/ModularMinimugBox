@@ -17,7 +17,7 @@ MMBDrawMinimugEnemyFlip:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r4-r5, r14}
+	push	{r4-r5, lr}
 
 	add		sp, #-0x04
 
@@ -28,15 +28,15 @@ MMBDrawMinimugEnemyFlip:
 
 	mov		r0, r1
 	ldr		r2, =GetPortraitIndex
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	mov		r2, r0
 
 	@ check if enemy
 
 	mov		r1, r5
-	mov		r0, #0x0B @ allegiance byte
+	mov		r0, #UnitDeploymentNumber @ allegiance byte
 	ldsb	r0, [r1, r0]
 	mov		r1, #0x80 @ enemy
 	and		r0, r1
@@ -54,7 +54,7 @@ Ally:
 
 	mov		r1, r5
 
-	ldr		r0, [r1, #0x0C]
+	ldr		r0, [r1, #UnitState]
 	mov		r1, #0x80
 	lsl		r1, r1, #0x10
 	and		r0, r1
@@ -81,12 +81,12 @@ NotIncreased:
 	@ draw
 
 	ldr		r0, =CreateMinimug
-	mov		r14, r0
+	mov		lr, r0
 
 	mov		r0, r2
 	ldr		r2, MMBMinimugTileIndexStart
 	ldr		r3, MMBMinimugPaletteIndex
-	.short 0xF800
+	bllr
 
 	add		sp, #0x04
 

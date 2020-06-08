@@ -11,17 +11,17 @@ MMBUpdateInfo:
 	@ Inputs:
 	@ r0: Pointer to Proc state
 
-	push	{r4, r14}
+	push	{r4, lr}
 
 	mov		r4, r0
 
 	ldr		r0, =MMBGetUnitAtCursor
-	mov		r14, r0
-	.short 0xF800
+	mov		lr, r0
+	bllr
 
 	ldr		r1, =GetDeploymentSlot
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	@ Move unit pointer into r1
 	@ to pass into BuildUI1Window
@@ -39,8 +39,8 @@ MMBUpdateInfo:
 
 	mov		r1, #0x03
 	ldr		r2, =GotoProcLabel
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	b		End
 
@@ -52,13 +52,13 @@ Unit:
 
 	mov		r0, r4
 	ldr		r2, =MMBBuildWindow
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	mov		r0, r4
 	ldr		r1, =MMBRedrawTilemap
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 End:
 	pop		{r4}

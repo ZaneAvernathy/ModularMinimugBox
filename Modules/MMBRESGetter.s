@@ -8,11 +8,11 @@ MMBRESGetter:
 	.global	MMBRESGetter
 	.type	MMBRESGetter, %function
 
-	push	{r14}
+	push	{lr}
 
 	ldr		r3, =GetRes
-	mov		r14, r3
-	.short 0xF800
+	mov		lr, r3
+	bllr
 
 	pop		{r1}
 	bx		r1

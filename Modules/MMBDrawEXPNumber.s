@@ -16,7 +16,7 @@ MMBDrawEXPNumber:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit
 
-	push	{r4-r7, r14}
+	push	{r4-r7, lr}
 
 	mov		r4, r0
 	mov		r5, r1
@@ -63,15 +63,15 @@ MMBDrawEXPNumber:
 SkipBottom:
 
 	mov		r0, r5
-	ldrb	r2, [r0, #0x09]
+	ldrb	r2, [r0, #UnitExperience]
 
 	mov		r0, r6
 	mov		r1, r7
 
 	ldr		r3, =MMBDrawUnsignedNumber
-	mov		r14, r3
+	mov		lr, r3
 
-	.short 0xF800
+	bllr
 
 End:
 

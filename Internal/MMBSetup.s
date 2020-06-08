@@ -11,19 +11,19 @@ MMBSetup:
 	@ Inputs:
 	@ r0: Pointer to UI1 Proc state
 
-	push	{r4-r6, r14}
+	push	{r4-r6, lr}
 
 	mov		r4, r0
 
 	@ Check if there's a unit at cursor
 
 	ldr		r0, =MMBGetUnitAtCursor
-	mov		r14, r0
-	.short 0xF800
+	mov		lr, r0
+	bllr
 
 	ldr		r1, =GetDeploymentSlot
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	cmp		r0, #0x00
 	beq		End
@@ -42,8 +42,8 @@ MMBSetup:
 	@ Next we figure out where to put the window
 
 	ldr		r0, =WindowPosCheck
-	mov		r14, r0
-	.short 0xF800
+	mov		lr, r0
+	bllr
 
 	@ Save this for later
 
@@ -60,8 +60,8 @@ MMBSetup:
 	lsl		r1, r1, #0x18
 	asr		r1, r1, #0x18 @ r1 Y, -1 up 1 down
 	ldr		r2, =WindowSideCheck
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	@ save the window side for later
 
@@ -71,8 +71,8 @@ MMBSetup:
 
 	ldr		r0, =ProcTI
 	ldr		r1, =FindProc
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 	cmp		r0, #0x00
 	beq		TerrainNotDrawn
@@ -96,8 +96,8 @@ TerrainNotDrawn:
 	@ Store cursor positions
 
 	ldr		r0, =MMBGetUnitAtCursor
-	mov		r14, r0
-	.short 0xF800
+	mov		lr, r0
+	bllr
 
 	mov		r0, r4
 	add		r0, #CursorX
@@ -113,8 +113,8 @@ TerrainNotDrawn:
 	mov		r0, r4
 	mov		r1, r6
 	ldr		r2, =MMBBuildWindow
-	mov		r14, r2
-	.short 0xF800
+	mov		lr, r2
+	bllr
 
 	@ Once we've drawn things on the box
 	@ and the terrain window is set
@@ -122,8 +122,8 @@ TerrainNotDrawn:
 
 	mov		r0, r4
 	ldr		r1, =ClearProcOnCycle
-	mov		r14, r1
-	.short 0xF800
+	mov		lr, r1
+	bllr
 
 End:
 	pop		{r4-r6}

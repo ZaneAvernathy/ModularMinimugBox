@@ -9,9 +9,9 @@ MMBAVOGetter:
 	.type	MMBAVOGetter, %function
 
 	ldr		r0, =BattleBufAttacker
-	mov		r1, #0x62
+	mov		r1, #BattleUnitAvoid
 	ldsh	r0, [r0, r1]
 
-	bx		r14
+	bx		lr
 
 .ltorg

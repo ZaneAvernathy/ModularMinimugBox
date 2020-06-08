@@ -20,7 +20,7 @@ MMBDrawAVODOD:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r4-r6, r14}
+	push	{r4-r6, lr}
 
 	mov		r4, r0
 	mov		r5, r1
@@ -59,9 +59,9 @@ DrawDef:
 	mov		r2, #0x40
 
 	ldr		r3, =RegisterTileGraphics
-	mov		r14, r3
+	mov		lr, r3
 
-	.short 0xF800
+	bllr
 
 	ldr		r0, MMBAVODODBGPos
 	ldr		r1, =WindowBuffer
@@ -86,8 +86,8 @@ DrawDef:
 	bne		End
 
 	mov		r0, r5
-	mov		r14, r6
-	.short 0xF800
+	mov		lr, r6
+	bllr
 
 	mov		r2, r0
 	ldr		r1, =MMBAVODODX
@@ -113,8 +113,8 @@ DrawDef:
 SkipBottom:
 
 	ldr		r3, =MMBDrawSignedNumber
-	mov		r14, r3
-	.short 0xF800
+	mov		lr, r3
+	bllr
 
 End:
 	pop		{r4-r6}
