@@ -14,7 +14,7 @@ MMBPrepIcons:
 
 	push	{lr}
 
-	add		r0, r0, #OAMCount
+	add		r0, r0, #InventoryIconCount
 	mov		r1, #0x00
 	strb	r1, [r0]
 

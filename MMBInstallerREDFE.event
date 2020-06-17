@@ -79,21 +79,233 @@ After each set of module options are definitions that you can use to adjust the 
 
 // Inventory modules
 
-	//#define MMBInventory
+	// Only one of these modules may be selected
+	// at a time. Incompatible with the individual
+	// item modules.
+
+	//#define MMBFullInventory
+		/*
+		 * Draws the unit's full inventory starting at
+		 * [MMBInventoryX, MMBInventoryY] and drawing
+		 * icons past the first to [MMBInventoryX+(16*n), MMBInventoryY].
+		 */
+
 	#define MMBEquippedWeapon
-	//#define MMBEquippedWeaponName // uses alt text
-	//#define MMBEquippedWeaponNameCentered // uses alt text
-	//#define MMBInventoryOrEquippedWeaponName // uses alt text
-	//#define MMBInventoryOrEquippedWeaponNameCentered // uses alt text
-	//#define MMBEquippedWeaponNameOnly // uses alt text
-	//#define MMBEquippedWeaponNameOnlyCentered // uses alt text
+		/*
+		 * Draws a unit's equipped weapon, if they have one,
+		 * to [MMBInventoryX, MMBInventoryY].
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaff
+		/*
+		 * Draws a unit's equipped weapon, if they have one,
+		 * to [MMBInventoryX, MMBInventoryY]. If the unit does
+		 * not have a weapon equipped, it tries to display
+		 * first first usable staff in the unit's inventory.
+		 */
+
+	//#define MMBEquippedWeaponIfPlayerOrInventory
+		/*
+		 * If the unit is a player unit, functions as MMBEquippedWeapon.
+		 * If they are not a player unit, functions as MMBFullInventory.
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaffIfPlayerOrInventory
+		/*
+		 * If the unit is a player unit, functions as MMBEquippedWeaponOrFirstStaff.
+		 * If they are not a player unit, functions as MMBFullInventory.
+		 */
+
+// Individual item modules
+
+	// Any combination of these modules may be selected.
+	// Incompatible with the inventory modules
+
+	//#define MMBItem1
+	//#define MMBItem2
+	//#define MMBItem3
+	//#define MMBItem4
+	//#define MMBItem5
+		/*
+		 * Draws the item in the specified item slot to
+		 * [MMBItem#X, MMBItem#Y] if there is an item in
+		 * that slot.
+		 */
+
+	//#define MMBItem1Alternate
+	//#define MMBItem2Alternate
+	//#define MMBItem3Alternate
+	//#define MMBItem4Alternate
+	//#define MMBItem5Alternate
+		/*
+		 * Draws an icon to [MMBInventoryAlternateX, MMBInventoryAlternateY]
+		 * cycling between all selected items. Each is shown for 64 frames.
+		 */
+
+// Item name modules
+
+	// Only one of these modules may be selected
+	// at a time. Each one uses the alt text.
+
+	//#define MMBEquippedWeaponName
+		/*
+		 * Draws the equipped weapon's name, if any,
+		 * to [MMBInventoryTextX, MMBInventoryTextY] using
+		 * MMBTextAltColor.
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaffName
+		/*
+		 * Draws the equipped weapon's name, if any,
+		 * to [MMBInventoryTextX, MMBInventoryTextY] using
+		 * MMBTextAltColor. If the unit does not have a
+		 * weapon equipped, tries to draw the first
+		 * equippable staff's name.
+		 */
+
+	//#define MMBEquippedWeaponNameCentered
+		/*
+		 * Draws the equipped weapon's name, if any,
+		 * to [MMBInventoryTextX, MMBInventoryTextY] using
+		 * MMBTextAltColor. The text is centered within the
+		 * space specified by MMBAltTextWidth.
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaffNameCentered
+		/*
+		 * Draws the equipped weapon's name, if any,
+		 * to [MMBInventoryTextX, MMBInventoryTextY] using
+		 * MMBTextAltColor. If the unit does not have a
+		 * weapon equipped, tries to draw the first
+		 * equippable staff's name. The text is centered
+		 * within the space specified by MMBAltTextWidth.
+		 */
+
+	//#define MMBEquippedWeaponNameIfPlayer
+		/*
+		 * Draws the equipped weapon's name, if any,
+		 * to [MMBInventoryTextX, MMBInventoryTextY] using
+		 * MMBTextAltColor if the unit is a player unit.
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaffNameIfPlayer
+		/*
+		 * Draws the equipped weapon's name, if any,
+		 * to [MMBInventoryTextX, MMBInventoryTextY] using
+		 * MMBTextAltColor if the unit is a player unit.
+		 * If the unit does not have a weapon equipped,
+		 * tries to draw the first equippable staff's name.
+		 */
+
+	//#define MMBEquippedWeaponNameIfPlayerCentered
+		/*
+		 * Draws the equipped weapon's name, if any,
+		 * to [MMBInventoryTextX, MMBInventoryTextY] using
+		 * MMBTextAltColor if the unit is a player unit.
+		 * The text is centered within the
+		 * space specified by MMBAltTextWidth.
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaffNameIfPlayerCentered
+		/*
+		 * Draws the equipped weapon's name, if any,
+		 * to [MMBInventoryTextX, MMBInventoryTextY] using
+		 * MMBTextAltColor if the unit is a player unit.
+		 * If the unit does not have a weapon equipped,
+		 * tries to draw the first equippable staff's name.
+		 * The text is centered within the
+		 * space specified by MMBAltTextWidth.
+		 */
+
+// Inventory combination modules
+
+	// Only one of these modules may be selected
+	// at a time. Each one uses the alt text.
+
+	//#define MMBEquippedWeaponAndName
+		/*
+		 * Shorthand for:
+		 * #define MMBEquippedWeapon
+		 * #define MMBEquippedWeaponName
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaffAndName
+		/*
+		 * Shorthand for:
+		 * #define MMBEquippedWeaponOrFirstStaff
+		 * #define MMBEquippedWeaponOrFirstStaffName
+		 */
+
+	//#define MMBEquippedWeaponAndNameCentered
+		/*
+		 * Shorthand for:
+		 * #define MMBEquippedWeapon
+		 * #define MMBEquippedWeaponNameCentered
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaffAndNameCentered
+		/*
+		 * Shorthand for:
+		 * #define MMBEquippedWeaponOrFirstStaff
+		 * #define MMBEquippedWeaponOrFirstStaffNameCentered
+		 */
+
+	//#define MMBEquippedWeaponAndNameIfPlayerOrInventory
+		/*
+		 * Shorthand for:
+		 * #define MMBEquippedWeaponNameIfPlayer
+		 * #define MMBEquippedWeaponIfPlayerOrInventory
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaffAndNameIfPlayerOrInventory
+		/*
+		 * Shorthand for:
+		 * #define MMBEquippedWeaponOrFirstStaffNameIfPlayer
+		 * #define MMBEquippedWeaponIfPlayerOrInventory
+		 */
+
+	//#define MMBEquippedWeaponAndNameIfPlayerCenteredOrInventory
+		/*
+		 * Shorthand for:
+		 * #define MMBEquippedWeaponNameIfPlayerCentered
+		 * #define MMBEquippedWeaponIfPlayerOrInventory
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaffAndNameIfPlayerCenteredOrInventory
+		/*
+		 * Shorthand for:
+		 * #define MMBEquippedWeaponOrFirstStaffNameIfPlayerCentered
+		 * #define MMBEquippedWeaponOrFirstStaffIfPlayerOrInventory
+		 */
 
 // Inventory options
+
+	#define MMBInventoryObjectPaletteIndex 4
+	#define MMBSkillObjectPaletteIndex 4
+
+	#define MMBInventoryTileIndex 0x300
 
 	// Coordinates are in pixels
 	#define MMBInventoryX 84
 	#define MMBInventoryY 24
-	#define MMBInventoryTileIndex 0x300
+
+	#define MMBItem1X 84
+	#define MMBItem1Y 24
+
+	#define MMBItem2X 100
+	#define MMBItem2Y 24
+
+	#define MMBItem3X 116
+	#define MMBItem3Y 24
+
+	#define MMBItem4X 132
+	#define MMBItem4Y 24
+
+	#define MMBItem5X 148
+	#define MMBItem5Y 24
+
+	#define MMBInventoryAlternateX 84
+	#define MMBInventoryAlternateY 24
 
 	// Used for item text
 	// Coordinates are in 8x8 pixel tiles

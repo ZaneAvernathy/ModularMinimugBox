@@ -44,7 +44,7 @@ MMBDrawEquippedWeapon:
 
 	@ get tile index to draw to
 
-	add		r4, #OAMCount
+	add		r4, #InventoryIconCount
 	ldrb	r2, [r4]
 	add		r3, r2, #0x01
 	strb	r3, [r4] @ increment icon count

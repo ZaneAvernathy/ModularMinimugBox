@@ -8,144 +8,99 @@ MMBDrawEquippedWeaponNameCentered:
 	.global	MMBDrawEquippedWeaponNameCentered
 	.type	MMBDrawEquippedWeaponNameCentered, %function
 
-	.set MMBInventoryTileIndex,	EALiterals + 0
-	.set MMBTextAltColor,		EALiterals + 2
-	.set MMBItemNamePosition,	EALiterals + 4
-	.set MMBAltTextWidth,		EALiterals + 8
+	.set MMBTextAltColor,		EALiterals + 0
+	.set MMBItemNamePosition,	EALiterals + 2
+	.set MMBAltTextWidth,		EALiterals + 4
 
 	@ Inputs:
 	@ r0: pointer to proc state
 	@ r1: pointer to unit in RAM
 
-	push	{r4-r7, lr}
+	push	{r4-r6, lr}
 
 	mov		r4, r0
+	mov		r5, r1
 
-	@ Check if unit has an equipped weapon
+	@ Get unit's equipped weapon
 
-	mov		r0, r1
-	ldr		r1, =GetEquippedWeapon
-	mov		lr, r1
-	bllr
+	mov		r0, #EquippedWeaponIndex
+	ldsb	r0, [r4, r0]
 
-	@ if not, end
+	cmp		r0, #0
+	blt		End
 
-	cmp		r0, #0x00
-	beq		End
+	lsl		r0, #1
+	add		r0, #UnitInventory
 
+	ldrh	r0, [r5, r0]
 	mov		r1, #0xFF
+
 	and		r0, r1
 
 	ldr		r1, =GetROMItemStructPtr
 	mov		lr, r1
 	bllr
 
-	mov		r6, r0
+	@ Write the item name to the text buffer
 
-	@ get icon
-
-	ldrb	r0, [r0, #ItemDataIconID]
-
-	@ get tile index to draw to
-
-	mov		r5, r4
-
-	add		r4, #OAMCount
-	ldrb	r2, [r4]
-	add		r3, r2, #0x01
-	strb	r3, [r4] @ increment icon count
-	lsl		r2, r2, #0x01
-	ldr		r1, =MMBInventoryTileIndex
-	ldrh	r1, [r1]
-	add		r1, r1, r2
-
-	ldr		r2, =RegisterIconOBJ
-	mov		lr, r2
-	bllr
-
-	mov		r4, r5
-
-	@ Draw the item icon palette to oam palette 4
-
-	ldr		r0, =ItemIconPalette
-	mov		r1, #0x14
-	lsl		r1, r1, #0x05
-	mov		r2, #0x20
-	ldr		r3, =CopyToPaletteBuffer
-	mov		lr, r3
-	bllr
-
-	@ get item name
-
-	mov		r0, r6
 	ldrh	r0, [r0]
-
 	ldr		r1, =TextBufferWriter
 	mov		lr, r1
 	bllr
 
-	@ save pointer to text
+	@ Save pointer for now, write text
+	@ info to the proc state
 
-	mov		r6, r0
+	mov		r5, r0
 
 	mov		r1, r0
-
-	ldr		r0, MMBAltTextWidth @ multiplied by 8 in EA
+	ldr		r0, =MMBAltTextWidth
+	ldrb	r0, [r0]
 	ldr		r2, =GetStringTextCenteredPos
 	mov		lr, r2
 	bllr
 
-	mov		r7, r0
-
-	@ write item name
+	mov		r6, r0
 
 	add		r4, #AltTextStructStart
+
 	mov		r0, r4
 	ldr		r1, =TextClear
 	mov		lr, r1
 	bllr
 
-	@ we write the text info to the proc state
-
 	mov		r0, r4
-	mov		r1, r7
+	mov		r1, r6
 	ldr		r2, =MMBTextAltColor
 	ldrh	r2, [r2]
-
 	ldr		r3, =TextSetParameters
 	mov		lr, r3
 	bllr
 
-	@ Write name
-
 	mov		r0, r4
-	mov		r1, r6
-
+	mov		r1, r5
 	ldr		r2, =TextAppendString
 	mov		lr, r2
 	bllr
 
-	@ write tilemap
-
 	mov		r0, r4
 	ldr		r1, =WindowBuffer
-	ldr		r2, MMBItemNamePosition
-	add		r1, r1, r2
-
+	ldr		r2, =MMBItemNamePosition
+	ldrh	r2, [r2]
+	add		r1, r2
 	ldr		r2, =TextDraw
 	mov		lr, r2
 	bllr
 
 End:
 
-	pop		{r4-r7}
+	pop		{r4-r6}
 	pop		{r0}
 	bx		r0
 
 .ltorg
 
 EALiterals:
-	@ MMBInventoryTileIndex
 	@ MMBTextAltColor
 	@ MMBItemNamePosition
 	@ MMBAltTextWidth

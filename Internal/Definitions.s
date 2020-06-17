@@ -44,6 +44,7 @@
 	SET_FUNC	ClearIconRegistry,			(0x08003584+1)
 	SET_FUNC	RegisterIconOBJ,			(0x0800372C+1)
 	SET_FUNC	RegisterTileGraphics,		(0x08002014+1)
+	SET_FUNC	CanUnitUseStaff,			(0x080167A4+1)
 	SET_FUNC	GetEquippedWeapon,			(0x08016B28+1)
 	SET_FUNC	GetEquippedWeaponSlot,		(0x08016B58+1)
 	SET_FUNC	SetupBattleStructUnitWeapon,(0x0802A400+1)
