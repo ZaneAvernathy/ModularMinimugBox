@@ -533,6 +533,8 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBLevelNumber
 	//#define MMBRESNumber
 	//#define MMBRTGNumber
+	//#define MMBCurrentHPNumber
+	//#define MMBMaxHPNumber
 
 // Number options
 
@@ -587,6 +589,14 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBRTGX 103
 	#define MMBRTGY 48
 
+	// Current HP number
+	#define MMBCurrentHPX 112
+	#define MMBCurrentHPY 8
+
+	// Max HP number
+	#define MMBMaxHPX 112
+	#define MMBMaxHPY 8
+
 // Label modules
 
 	#define MMBASLabel
@@ -601,6 +611,7 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBLevelLabel
 	//#define MMBRESLabel
 	//#define MMBRTGLabel
+	//#define MMBHPLabel
 
 // Label options
 
@@ -690,6 +701,12 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBRTGLabelPaletteIndex 2
 	#define MMBRTGLabelTileCount 2
 
+	// HP label
+	#define MMBHPLabelX 11
+	#define MMBHPLabelY 1
+	#define MMBHPLabelVRAMTile 0x120
+	#define MMBHPLabelPaletteIndex 2
+	#define MMBHPLabelTileCount 2
 
 ALIGN 4
 

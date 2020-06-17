@@ -873,6 +873,15 @@
 			#endif // MMBLabelDrawing
 		#endif // MMBRTGLabel
 
+		#ifdef MMBHPLabel
+			ALIGN 4
+			MMBHPLabelGraphic:
+			#incbin "Modules/HPLabel.4bpp"
+			#ifndef MMBLabelDrawing
+				#define MMBLabelDrawing
+			#endif // MMBLabelDrawing
+		#endif // MMBHPLabel
+
 	// Number modules
 
 		#ifdef MMBLevelNumber
@@ -905,6 +914,9 @@
 			#ifndef MMBBattleStruct
 				#define MMBBattleStruct
 			#endif // MMBBattleStruct
+			#ifndef MMBNumberDrawing
+				#define MMBNumberDrawing
+			#endif // MMBNumberDrawing
 		#endif // MMBASNumber
 
 		#ifdef MMBATKNumber
@@ -915,6 +927,9 @@
 			#ifndef MMBBattleStruct
 				#define MMBBattleStruct
 			#endif // MMBBattleStruct
+			#ifndef MMBNumberDrawing
+				#define MMBNumberDrawing
+			#endif // MMBNumberDrawing
 		#endif // MMBATKNumber
 
 		#ifdef MMBAVONumber
@@ -925,6 +940,9 @@
 			#ifndef MMBBattleStruct
 				#define MMBBattleStruct
 			#endif // MMBBattleStruct
+			#ifndef MMBNumberDrawing
+				#define MMBNumberDrawing
+			#endif // MMBNumberDrawing
 		#endif // MMBAVONumber
 
 		#ifdef MMBCHRNumber
@@ -935,6 +953,9 @@
 			#ifndef MMBBattleStruct
 				#define MMBBattleStruct
 			#endif // MMBBattleStruct
+			#ifndef MMBNumberDrawing
+				#define MMBNumberDrawing
+			#endif // MMBNumberDrawing
 		#endif // MMBCHRNumber
 
 		#ifdef MMBCRTNumber
@@ -945,6 +966,9 @@
 			#ifndef MMBBattleStruct
 				#define MMBBattleStruct
 			#endif // MMBBattleStruct
+			#ifndef MMBNumberDrawing
+				#define MMBNumberDrawing
+			#endif // MMBNumberDrawing
 		#endif // MMBCRTNumber
 
 		#ifdef MMBDEFNumber
@@ -955,6 +979,9 @@
 			#ifndef MMBBattleStruct
 				#define MMBBattleStruct
 			#endif // MMBBattleStruct
+			#ifndef MMBNumberDrawing
+				#define MMBNumberDrawing
+			#endif // MMBNumberDrawing
 		#endif // MMBDEFNumber
 
 		#ifdef MMBDODNumber
@@ -965,6 +992,9 @@
 			#ifndef MMBBattleStruct
 				#define MMBBattleStruct
 			#endif // MMBBattleStruct
+			#ifndef MMBNumberDrawing
+				#define MMBNumberDrawing
+			#endif // MMBNumberDrawing
 		#endif // MMBDODNumber
 
 		#ifdef MMBHITNumber
@@ -975,6 +1005,9 @@
 			#ifndef MMBBattleStruct
 				#define MMBBattleStruct
 			#endif // MMBBattleStruct
+			#ifndef MMBNumberDrawing
+				#define MMBNumberDrawing
+			#endif // MMBNumberDrawing
 		#endif // MMBHITNumber
 
 		#ifdef MMBRESNumber
@@ -985,6 +1018,9 @@
 			#ifndef MMBBattleStruct
 				#define MMBBattleStruct
 			#endif // MMBBattleStruct
+			#ifndef MMBNumberDrawing
+				#define MMBNumberDrawing
+			#endif // MMBNumberDrawing
 		#endif // MMBRESNumber
 
 		#ifdef MMBRTGNumber
@@ -995,7 +1031,36 @@
 			#ifndef MMBBattleStruct
 				#define MMBBattleStruct
 			#endif // MMBBattleStruct
+			#ifndef MMBNumberDrawing
+				#define MMBNumberDrawing
+			#endif // MMBNumberDrawing
 		#endif // MMBRTGNumber
+
+		#ifdef MMBCurrentHPNumber
+			#include "Modules/MMBCurrentHPGetter.lyn.event"
+			#ifndef MMBNumberListDrawing
+				#define MMBNumberListDrawing
+			#endif // MMBNumberListDrawing
+			#ifndef MMBBattleStruct
+				#define MMBBattleStruct
+			#endif // MMBBattleStruct
+			#ifndef MMBNumberDrawing
+				#define MMBNumberDrawing
+			#endif // MMBNumberDrawing
+		#endif // MMBCurrentHPNumber
+
+		#ifdef MMBMaxHPNumber
+			#include "Modules/MMBMaxHPGetter.lyn.event"
+			#ifndef MMBNumberListDrawing
+				#define MMBNumberListDrawing
+			#endif // MMBNumberListDrawing
+			#ifndef MMBBattleStruct
+				#define MMBBattleStruct
+			#endif // MMBBattleStruct
+			#ifndef MMBNumberDrawing
+				#define MMBNumberDrawing
+			#endif // MMBNumberDrawing
+		#endif // MMBMaxHPNumber
 
 	// Module helpers
 
@@ -1220,6 +1285,16 @@
 				SHORT MMBRTGX
 				SHORT MMBRTGY
 			#endif // MMBRTGNumber
+			#ifdef MMBCurrentHPNumber
+				POIN MMBCurrentHPGetter
+				SHORT MMBCurrentHPX
+				SHORT MMBCurrentHPY
+			#endif // MMBCurrentHPNumber
+			#ifdef MMBMaxHPNumber
+				POIN MMBMaxHPGetter
+				SHORT MMBMaxHPX
+				SHORT MMBMaxHPY
+			#endif // MMBMaxHPNumber
 			WORD 0
 		#endif // MMBNumberListDrawing
 
@@ -1289,6 +1364,11 @@
 				SHORT ((MMBRTGLabelPaletteIndex << 12) | MMBRTGLabelVRAMTile)
 				SHORT (2 * ((32 * MMBRTGLabelY) + MMBRTGLabelX)) | ((MMBRTGLabelTileCount << 12))
 			#endif // MMBRTGLabel
+			#ifdef MMBHPLabel
+				POIN MMBHPLabelGraphic
+				SHORT ((MMBHPLabelPaletteIndex << 12) | MMBHPLabelVRAMTile)
+				SHORT (2 * ((32 * MMBHPLabelY) + MMBHPLabelX)) | ((MMBHPLabelTileCount << 12))
+			#endif // MMBHPLabel
 			WORD 0
 		#endif // MMBLabelDrawing
 
