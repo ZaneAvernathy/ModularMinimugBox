@@ -33,7 +33,7 @@ ASFLAGS := -g -mcpu=arm7tdmi -mthumb -mthumb-interwork
 
 # Recipes
 
-.PHONY: all
+.PHONY: all clean
 
 all: $(EVENT_DEPENDS)
 
@@ -51,3 +51,10 @@ all: $(EVENT_DEPENDS)
 
 %.4bpp: %.png
 	@$(PNG2DMP) $< -o $@
+
+clean:
+	@$(RM) Internal/*.lyn.event
+	@$(RM) Internal/*.o
+	@$(RM) Modules/*.lyn.event
+	@$(RM) Modules/*.o
+	@$(RM) Modules/*.4bpp
