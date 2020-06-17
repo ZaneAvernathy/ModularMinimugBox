@@ -219,6 +219,56 @@ After each set of module options are definitions that you can use to adjust the 
 		 * space specified by MMBAltTextWidth.
 		 */
 
+	//#define MMBEquippedWeaponNameWithWarning
+		/*
+		 * Draws the equipped weapon's name, if any,
+		 * to [MMBInventoryTextX, MMBInventoryTextY].
+		 * The text is drawn using MMBTextWarningColor
+		 * if its durability is at or below
+		 * MMBItemDurabilityThreshold percent of its max
+		 * durability, otherwise it is drawn using
+		 * MMBTextAltColor.
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaffNameWithWarning
+		/*
+		 * Draws the equipped weapon's name, if any,
+		 * to [MMBInventoryTextX, MMBInventoryTextY].
+		 * If the unit does not have a weapon equipped,
+		 * tries to draw the first equippable staff's name.
+		 * The text is drawn using MMBTextWarningColor
+		 * if its durability is at or below
+		 * MMBItemDurabilityThreshold percent of its max
+		 * durability, otherwise it is drawn using
+		 * MMBTextAltColor.
+		 */
+
+	//#define MMBEquippedWeaponNameWithWarningCentered
+		/*
+		 * Draws the equipped weapon's name, if any,
+		 * to [MMBInventoryTextX, MMBInventoryTextY].
+		 * The text is drawn using MMBTextWarningColor
+		 * if its durability is at or below
+		 * MMBItemDurabilityThreshold percent of its max
+		 * durability, otherwise it is drawn using
+		 * MMBTextAltColor. The text is centered within the
+		 * space specified by MMBAltTextWidth.
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaffNameWithWarningCentered
+		/*
+		 * Draws the equipped weapon's name, if any,
+		 * to [MMBInventoryTextX, MMBInventoryTextY].
+		 * If the unit does not have a weapon equipped,
+		 * tries to draw the first equippable staff's name.
+		 * The text is drawn using MMBTextWarningColor
+		 * if its durability is at or below
+		 * MMBItemDurabilityThreshold percent of its max
+		 * durability, otherwise it is drawn using
+		 * MMBTextAltColor. The text is centered within the
+		 * space specified by MMBAltTextWidth.
+		 */
+
 // Inventory combination modules
 
 	// Only one of these modules may be selected
@@ -280,6 +330,34 @@ After each set of module options are definitions that you can use to adjust the 
 		 * #define MMBEquippedWeaponOrFirstStaffIfPlayerOrInventory
 		 */
 
+	//#define MMBEquippedWeaponAndNameWithWarning
+		/*
+		 * Shorthand for:
+		 * #define MMBEquippedWeapon
+		 * #define MMBEquippedWeaponNameWithWarning
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaffAndNameWithWarning
+		/*
+		 * Shorthand for:
+		 * #define MMBEquippedWeaponOrFirstStaff
+		 * #define MMBEquippedWeaponOrFirstStaffNameWithWarning
+		 */
+
+	//#define MMBEquippedWeaponAndNameWithWarningCentered
+		/*
+		 * Shorthand for:
+		 * #define MMBEquippedWeapon
+		 * #define MMBEquippedWeaponNameWithWarningCentered
+		 */
+
+	//#define MMBEquippedWeaponOrFirstStaffAndNameWithWarningCentered
+		/*
+		 * Shorthand for:
+		 * #define MMBEquippedWeaponOrFirstStaff
+		 * #define MMBEquippedWeaponOrFirstStaffNameWithWarningCentered
+		 */
+
 // Inventory options
 
 	#define MMBInventoryObjectPaletteIndex 4
@@ -314,6 +392,10 @@ After each set of module options are definitions that you can use to adjust the 
 	#define MMBInventoryTextY 1
 	#define MMBAltTextWidth 7
 	#define MMBTextAltColor TextBlack
+
+	#define MMBTextWarningColor TextYellow
+
+	#define MMBItemDurabilityThreshold 50 // percent of max durability
 
 // Combination modules
 

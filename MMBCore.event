@@ -157,6 +157,42 @@
 				#endif // MMBEquippedWeaponOrFirstStaffIfPlayerOrInventory
 			#endif // MMBEquippedWeaponOrFirstStaffAndNameIfPlayerCenteredOrInventory
 
+			#ifdef MMBEquippedWeaponAndNameWithWarning
+				#ifndef MMBEquippedWeaponNameWithWarning
+					#define MMBEquippedWeaponNameWithWarning
+				#endif // MMBEquippedWeaponNameWithWarning
+				#ifndef MMBEquippedWeapon
+					#define MMBEquippedWeapon
+				#endif // MMBEquippedWeapon
+			#endif // MMBEquippedWeaponAndNameWithWarning
+
+			#ifdef MMBEquippedWeaponOrFirstStaffAndNameWithWarning
+				#ifndef MMBEquippedWeaponOrFirstStaffNameWithWarning
+					#define MMBEquippedWeaponOrFirstStaffNameWithWarning
+				#endif // MMBEquippedWeaponOrFirstStaffNameWithWarning
+				#ifndef MMBEquippedWeaponOrFirstStaff
+					#define MMBEquippedWeaponOrFirstStaff
+				#endif // MMBEquippedWeaponOrFirstStaff
+			#endif // MMBEquippedWeaponOrFirstStaffAndNameWithWarning
+
+			#ifdef MMBEquippedWeaponAndNameWithWarningCentered
+				#ifndef MMBEquippedWeaponNameWithWarningCentered
+					#define MMBEquippedWeaponNameWithWarningCentered
+				#endif // MMBEquippedWeaponNameWithWarningCentered
+				#ifndef MMBEquippedWeapon
+					#define MMBEquippedWeapon
+				#endif // MMBEquippedWeapon
+			#endif // MMBEquippedWeaponAndNameWithWarningCentered
+
+			#ifdef MMBEquippedWeaponOrFirstStaffAndNameWithWarningCentered
+				#ifndef MMBEquippedWeaponOrFirstStaffNameWithWarningCentered
+					#define MMBEquippedWeaponOrFirstStaffNameWithWarningCentered
+				#endif // MMBEquippedWeaponOrFirstStaffNameWithWarningCentered
+				#ifndef MMBEquippedWeaponOrFirstStaff
+					#define MMBEquippedWeaponOrFirstStaff
+				#endif // MMBEquippedWeaponOrFirstStaff
+			#endif // MMBEquippedWeaponOrFirstStaffAndNameWithWarning
+
 		// Item name modules
 
 			#ifdef MMBEquippedWeaponName
@@ -230,6 +266,42 @@
 					#define MMBEquippedWeaponNameIfPlayerCenteredInternal
 				#endif // MMBEquippedWeaponNameIfPlayerCenteredInternal
 			#endif // MMBEquippedWeaponOrFirstStaffNameIfPlayerCentered
+
+			#ifdef MMBEquippedWeaponNameWithWarning
+				#ifndef MMBEquippedItemPrep
+					#define MMBEquippedItemPrep
+				#endif // MMBEquippedItemPrep
+				#ifndef MMBEquippedWeaponNameWithWarningInternal
+					#define MMBEquippedWeaponNameWithWarningInternal
+				#endif // MMBEquippedWeaponNameWithWarningInternal
+			#endif // MMBEquippedWeaponNameWithWarning
+
+			#ifdef MMBEquippedWeaponOrFirstStaffNameWithWarning
+				#ifndef MMBEquippedItemOrStaffPrep
+					#define MMBEquippedItemOrStaffPrep
+				#endif // MMBEquippedItemOrStaffPrep
+				#ifndef MMBEquippedWeaponNameWithWarningInternal
+					#define MMBEquippedWeaponNameWithWarningInternal
+				#endif // MMBEquippedWeaponNameWithWarningInternal
+			#endif // MMBEquippedWeaponOrFirstStaffNameWithWarning
+
+			#ifdef MMBEquippedWeaponNameWithWarningCentered
+				#ifndef MMBEquippedItemPrep
+					#define MMBEquippedItemPrep
+				#endif // MMBEquippedItemPrep
+				#ifndef MMBEquippedWeaponNameWithWarningCenteredInternal
+					#define MMBEquippedWeaponNameWithWarningCenteredInternal
+				#endif // MMBEquippedWeaponNameWithWarningCenteredInternal
+			#endif // MMBEquippedWeaponNameWithWarningCentered
+
+			#ifdef MMBEquippedWeaponOrFirstStaffNameWithWarningCentered
+				#ifndef MMBEquippedItemOrStaffPrep
+					#define MMBEquippedItemOrStaffPrep
+				#endif // MMBEquippedItemOrStaffPrep
+				#ifndef MMBEquippedWeaponNameWithWarningCenteredInternal
+					#define MMBEquippedWeaponNameWithWarningCenteredInternal
+				#endif // MMBEquippedWeaponNameWithWarningCenteredInternal
+			#endif // MMBEquippedWeaponOrFirstStaffNameWithWarningCentered
 
 		// Inventory modules
 
@@ -423,6 +495,21 @@
 			SHORT (2 * ((32 * MMBInventoryTextY) + MMBInventoryTextX))
 			BYTE (8 * MMBAltTextWidth)
 		#endif // MMBEquippedWeaponNameIfPlayerCenteredInternal
+
+		#ifdef MMBEquippedWeaponNameWithWarningInternal
+			#include "Modules/MMBDrawEquippedWeaponNameWithWarning.lyn.event"
+			SHORT (2 * ((32 * MMBInventoryTextY) + MMBInventoryTextX))
+			BYTE MMBTextAltColor MMBTextWarningColor
+			BYTE MMBItemDurabilityThreshold
+		#endif // MMBEquippedWeaponNameWithWarningInternal
+
+		#ifdef MMBEquippedWeaponNameWithWarningCenteredInternal
+			#include "Modules/MMBDrawEquippedWeaponNameWithWarningCentered.lyn.event"
+			SHORT (2 * ((32 * MMBInventoryTextY) + MMBInventoryTextX))
+			BYTE MMBTextAltColor MMBTextWarningColor
+			BYTE MMBItemDurabilityThreshold
+			BYTE MMBAltTextWidth * 8
+		#endif // MMBEquippedWeaponNameWithWarningCenteredInternal
 
 	// Minimug modules
 
@@ -1232,6 +1319,14 @@
 		#ifdef MMBEquippedWeaponNameIfPlayerCenteredInternal
 			POIN MMBDrawEquippedWeaponNameIfPlayerCentered
 		#endif // MMBEquippedWeaponNameIfPlayerCenteredInternal
+
+		#ifdef MMBEquippedWeaponNameWithWarningInternal
+			POIN MMBDrawEquippedWeaponNameWithWarning
+		#endif // MMBEquippedWeaponNameWithWarningInternal
+
+		#ifdef MMBEquippedWeaponNameWithWarningCenteredInternal
+			POIN MMBDrawEquippedWeaponNameWithWarningCentered
+		#endif // MMBEquippedWeaponNameWithWarningCenteredInternal
 
 		#ifdef MMBStandardTilemap
 			POIN MMBDrawTilemap

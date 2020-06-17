@@ -176,3 +176,28 @@
 	.set ItemDataUseEffectID,			0x1E
 	.set ItemDataWeaponEffectID,		0x1F
 	.set ItemDataWeaponEXP,				0x20
+
+@ Item attributes
+
+	.set ItemAttributeWeapon,			(1 <<  0)
+	.set ItemAttributeMagic,			(1 <<  1)
+	.set ItemAttributeStaff,			(1 <<  2)
+	.set ItemAttributeUnbreakable,		(1 <<  3)
+	.set ItemAttributeUnsellable,		(1 <<  4)
+	.set ItemAttributeBrave,			(1 <<  5)
+	.set ItemAttributeMagicDamage,		(1 <<  6)
+	.set ItemAttributeUncounterable,	(1 <<  7)
+	.set ItemAttributeReverseTriangle,	(1 <<  8)
+	.set ItemAttributeHammerne,			(1 <<  9)
+	.set ItemAttributeLock3,			(1 << 10)
+	.set ItemAttributeLock1,			(1 << 11)
+	.set ItemAttributeLock2,			(1 << 12)
+	.set ItemAttributeLock0,			(1 << 13)
+	.set ItemAttributeNegateFlying,		(1 << 14)
+	.set ItemAttributeNegateCrit,		(1 << 15)
+	.set ItemAttributeUnusable,			(1 << 16)
+	.set ItemAttributeNegateDefense,	(1 << 17)
+	.set ItemAttributeLock4,			(1 << 18)
+	.set ItemAttributeLock5,			(1 << 19)
+	.set ItemAttributeLock6,			(1 << 20)
+	.set ItemAttributeLock7,			(1 << 21)
