@@ -281,7 +281,6 @@ After each set of module options are definitions that you can use to adjust the 
 // Inventory options
 
 	#define MMBInventoryObjectPaletteIndex 4
-	#define MMBSkillObjectPaletteIndex 4
 
 	#define MMBInventoryTileIndex 0x300
 
@@ -375,15 +374,67 @@ After each set of module options are definitions that you can use to adjust the 
 
 // Skills modules (requires skill system)
 
-	//#define MMBSkillsAlternate
+	//#define MMBFullSkills
+		/*
+		 * Draws the unit's full skill list starting at
+		 * [MMBSkillsX, MMBSkillsY] and drawing
+		 * icons past the first to [MMBSkillsX+(16*n), MMBSkillsY].
+		 * Overrides the MMBSkill# modules.
+		 */
+
+	//#define MMBSkill1
+	//#define MMBSkill2
+	//#define MMBSkill3
+	//#define MMBSkill4
+	//#define MMBSkill5
+	//#define MMBSkill6
+		/*
+		 * Draws the skill in the specified skill slot to
+		 * [MMBSkill#X, MMBSkill#Y] if there is an skill in
+		 * that slot.
+		 */
+
+	//#define MMBSkill1Alternate
+	//#define MMBSkill2Alternate
+	//#define MMBSkill3Alternate
+	//#define MMBSkill4Alternate
+	//#define MMBSkill5Alternate
+	//#define MMBSkill6Alternate
+		/*
+		 * Draws an icon to [MMBSkillsAlternateX, MMBSkillsAlternateY]
+		 * cycling between all selected skills. Each is shown for 64 frames.
+		 */
 
 // Skills options
 
 	// Coordinates are in pixels
 
+	#define MMBSkillObjectPaletteIndex 4
+	#define MMBSkillTile 0x30C
+
 	#define MMBSkillsX 120
 	#define MMBSkillsY 8
-	#define MMBSkillTile 0x30C
+
+	#define MMBSkill1X 120
+	#define MMBSkill1Y 8
+
+	#define MMBSkill2X 136
+	#define MMBSkill2Y 8
+
+	#define MMBSkill3X 152
+	#define MMBSkill3Y 8
+
+	#define MMBSkill4X 168
+	#define MMBSkill4Y 8
+
+	#define MMBSkill5X 174
+	#define MMBSkill5Y 8
+
+	#define MMBSkill6X 180
+	#define MMBSkill6Y 8
+
+	#define MMBSkillsAlternateX 120
+	#define MMBSkillsAlternateY 8
 
 // Number modules
 

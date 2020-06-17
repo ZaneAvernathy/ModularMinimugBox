@@ -550,22 +550,129 @@
 
 	// Skills modules
 
-		#ifdef MMBSkillsAlternate
-			#include "Modules/MMBDrawSkills.lyn.event"
-			WORD MMBSkillTile
-			#ifdef HAX_ICON_REWORK
-				BYTE 1 // Skill icon sheet
-			#else
+		#ifdef MMBFullSkills
+			#ifndef MMBRenderSkills
+				#define MMBRenderSkills
+			#endif // MMBRenderSkills
+			#ifndef MMBSkills
+				#define MMBSkills
+			#endif // MMBSkills
+		#endif // MMBFullSkills
+
+		#ifdef MMBSkill1
+			#ifndef MMBRenderSkills
+				#define MMBRenderSkills
+			#endif // MMBRenderSkills
+			#ifndef MMBSkills
+				#define MMBSkills
+			#endif // MMBSkills
+		#endif // MMBSkill1
+
+		#ifdef MMBSkill2
+			#ifndef MMBRenderSkills
+				#define MMBRenderSkills
+			#endif // MMBRenderSkills
+			#ifndef MMBSkills
+				#define MMBSkills
+			#endif // MMBSkills
+		#endif // MMBSkill2
+
+		#ifdef MMBSkill3
+			#ifndef MMBRenderSkills
+				#define MMBRenderSkills
+			#endif // MMBRenderSkills
+			#ifndef MMBSkills
+				#define MMBSkills
+			#endif // MMBSkills
+		#endif // MMBSkill3
+
+		#ifdef MMBSkill4
+			#ifndef MMBRenderSkills
+				#define MMBRenderSkills
+			#endif // MMBRenderSkills
+			#ifndef MMBSkills
+				#define MMBSkills
+			#endif // MMBSkills
+		#endif // MMBSkill4
+
+		#ifdef MMBSkill5
+			#ifndef MMBRenderSkills
+				#define MMBRenderSkills
+			#endif // MMBRenderSkills
+			#ifndef MMBSkills
+				#define MMBSkills
+			#endif // MMBSkills
+		#endif // MMBSkill5
+
+		#ifdef MMBSkill1Alternate
+			#ifndef MMBRenderSkillsAlternate
+				#define MMBRenderSkillsAlternate
+			#endif // MMBRenderSkillsAlternate
+		#endif // MMBSkill1Alternate
+
+		#ifdef MMBSkill2Alternate
+			#ifndef MMBRenderSkillsAlternate
+				#define MMBRenderSkillsAlternate
+			#endif // MMBRenderSkillsAlternate
+		#endif // MMBSkill2Alternate
+
+		#ifdef MMBSkill3Alternate
+			#ifndef MMBRenderSkillsAlternate
+				#define MMBRenderSkillsAlternate
+			#endif // MMBRenderSkillsAlternate
+		#endif // MMBSkill3Alternate
+
+		#ifdef MMBSkill4Alternate
+			#ifndef MMBRenderSkillsAlternate
+				#define MMBRenderSkillsAlternate
+			#endif // MMBRenderSkillsAlternate
+		#endif // MMBSkill4Alternate
+
+		#ifdef MMBSkill5Alternate
+			#ifndef MMBRenderSkillsAlternate
+				#define MMBRenderSkillsAlternate
+			#endif // MMBRenderSkillsAlternate
+		#endif // MMBSkill5Alternate
+
+		#ifdef MMBSkill6Alternate
+			#ifndef MMBRenderSkillsAlternate
+				#define MMBRenderSkillsAlternate
+			#endif // MMBRenderSkillsAlternate
+		#endif // MMBSkill6Alternate
+
+		#ifdef MMBRenderSkillsAlternate
+			#include "Modules/MMBResetDisplayedSkillIndex.lyn.event"
+			#include "Modules/MMBRenderSkillsAlternateObj.lyn.event"
+			SHORT (MMBSkillObjectPaletteIndex << 12) | MMBSkillTile
+			BYTE MMBSkillsAlternateX MMBSkillsAlternateY
+			ALIGN 4
+			MMBAlternatingSkillListTable:
+			#ifdef MMBSkill1Alternate
+				BYTE 0
+			#endif // MMBSkill1Alternate
+			#ifdef MMBSkill2Alternate
 				BYTE 1
-			#endif // HAX_ICON_REWORK
-			#include "Modules/MMBDrawSkillAlternatingObjs.lyn.event"
-			WORD MMBHeight
-			SHORT (4 << 12) | MMBSkillTile
-			BYTE MMBSkillsX MMBSkillsY
-			#ifndef MMBIconPrep
-				#define MMBIconPrep
-			#endif // MMBIconPrep
-		#endif // MMBSkillsAlternate
+			#endif // MMBSkill2Alternate
+			#ifdef MMBSkill3Alternate
+				BYTE 2
+			#endif // MMBSkill3Alternate
+			#ifdef MMBSkill4Alternate
+				BYTE 3
+			#endif // MMBSkill4Alternate
+			#ifdef MMBSkill5Alternate
+				BYTE 4
+			#endif // MMBSkill5Alternate
+			#ifdef MMBSkill6Alternate
+				BYTE 5
+			#endif // MMBSkill6Alternate
+			BYTE -1
+			#ifndef MMBRenderIcon
+				#define MMBRenderIcon
+			#endif // MMBRenderIcon
+			#ifndef MMBSkills
+				#define MMBSkills
+			#endif // MMBSkills
+		#endif // MMBRenderSkillsAlternate
 
 	// Label modules
 
@@ -866,6 +973,58 @@
 			#endif // MMBInventory
 		#endif // MMBRenderEquippedWeaponIfPlayerOrInventory
 
+		#ifdef MMBRenderSkills
+			#include "Internal/MMBRenderSkillList.lyn.event"
+			SHORT (MMBSkillObjectPaletteIndex << 12) | MMBSkillTile
+			ALIGN 4
+			MMBSkillListTable:
+			#ifdef MMBFullSkills
+				BYTE 0 (MMBSkillsX + 00) MMBSkillsY
+				BYTE 1 (MMBSkillsX + 16) MMBSkillsY
+				BYTE 2 (MMBSkillsX + 32) MMBSkillsY
+				BYTE 3 (MMBSkillsX + 48) MMBSkillsY
+				BYTE 4 (MMBSkillsX + 64) MMBSkillsY
+				BYTE 5 (MMBSkillsX + 80) MMBSkillsY
+			#else
+				#ifdef MMBSkill1
+					BYTE 0 MMBSkill1X MMBSkill1Y
+				#endif // MMBSkill1
+				#ifdef MMBSkill2
+					BYTE 1 MMBSkill2X MMBSkill2Y
+				#endif // MMBSkill2
+				#ifdef MMBSkill3
+					BYTE 2 MMBSkill3X MMBSkill3Y
+				#endif // MMBSkill3
+				#ifdef MMBSkill4
+					BYTE 3 MMBSkill4X MMBSkill4Y
+				#endif // MMBSkill4
+				#ifdef MMBSkill5
+					BYTE 4 MMBSkill5X MMBSkill5Y
+				#endif // MMBSkill5
+				#ifdef MMBSkill6
+					BYTE 5 MMBSkill6X MMBSkill6Y
+				#endif // MMBSkill6
+			#endif // MMBFullSkills
+			BYTE -1
+			#ifndef MMBRenderIcon
+				#define MMBRenderIcon
+			#endif // MMBRenderIcon
+		#endif // MMBRenderSkills
+
+		#ifdef MMBSkills
+			#include "Internal/MMBDrawSkills.lyn.event"
+			SHORT MMBSkillTile
+			BYTE MMBSkillObjectPaletteIndex + 0x10
+			#ifdef HAX_ICON_REWORK
+				BYTE 1 // Skill icon sheet
+			#else
+				BYTE 1
+			#endif // HAX_ICON_REWORK
+			#ifndef MMBIconPrep
+				#define MMBIconPrep
+			#endif // MMBIconPrep
+		#endif // MMBSkills
+
 		#ifdef MMBRenderEquippedWeaponIcon
 			#include "Internal/MMBRenderEquippedWeapon.lyn.event"
 			SHORT (MMBInventoryObjectPaletteIndex << 12) | MMBInventoryTileIndex
@@ -1122,9 +1281,9 @@
 			POIN MMBDrawAffinity
 		#endif // MMBAffinity
 
-		#ifdef MMBSkillsAlternate
+		#ifdef MMBSkills
 			POIN MMBDrawSkills
-		#endif // MMBSkillsAlternate
+		#endif // MMBSkills
 
 	WORD 0
 
@@ -1176,6 +1335,10 @@
 			POIN MMBRenderItemList
 		#endif // MMBRenderInventory
 
+		#ifdef MMBRenderSkills
+			POIN MMBRenderSkillList
+		#endif // MMBRenderSkills
+
 		#ifdef MMBRenderEquippedWeaponIcon
 			POIN MMBRenderEquippedWeapon
 		#endif // MMBRenderEquippedWeaponIcon
@@ -1184,9 +1347,9 @@
 			POIN MMBRenderEquippedWeaponIfPlayerOrInventoryObj
 		#endif // MMBRenderEquippedWeaponIfPlayerOrInventory
 
-		#ifdef MMBSkillsAlternate
-			POIN MMBDrawSkillAlternatingObjs
-		#endif // MMBSkillsAlternate
+		#ifdef MMBRenderSkillsAlternate
+			POIN MMBRenderSkillsAlternateObj
+		#endif // MMBRenderSkillsAlternate
 
 		#ifdef MMBHPBarStatus
 			POIN MMBDrawHPBarStatus
