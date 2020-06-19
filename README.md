@@ -1,12 +1,7 @@
 
-
 # Installation
 
-The Modular Minimug Box requires [lyn](http://feuniverse.us/t/ea-asm-tool-lyn-elf2ea-if-you-will/2986).
-
-To install `lyn`, place the `lyn` executable in your `<Event Assembler>/Tools/` folder.
-
-To install the Modular Minimug Box (henceforth just the MMB) you simply need to `#include` one of the `MMB Installer` files. There are multiple variants of the installer included with the MMB, so pick your favorite to install or use as a starting point to customize.
+To install the Modular Minimug Box (henceforth just the MMB) you simply need to `#include` one of the `MMBInstaller` files in the `Installers` folder. There are multiple variants of the installer included with the MMB, so pick your favorite to install or use as a starting point to customize.
 
 The MMB takes up a considerable amount of freespace and is made by default to be included within a larger EA buildfile. If you're installing the MMB on its own, you'll need to modify your installer to assemble the hack to freespace. The easiest way to do that is to add the line `ORG 0x00B2A610` as the first line in the installer, replacing `0x00B2A610` with the offset of some available space.
 
@@ -21,9 +16,23 @@ Throughout the installer there are lists of modules
 // Unit name modules
 
 	//#define MMBName
+		/*
+		 * Draws the unit's name to [MMBNameX, MMBNameY]
+		 * using MMBNameColor.
+		 */
 	//#define MMBNameCentered
-	#define MMBNameAffinityShifted
+		/*
+		 * Draws the unit's name to [MMBNameX, MMBNameY]
+		 * using MMBNameColor, centering it within the
+		 * number of tiles specified by MMBNameWidth.
+		 */
 
+	#define MMBNameAffinityShifted
+		/*
+		 * Draws the unit's name to [MMBNameX, MMBNameY]
+		 * using MMBNameColor. If the unit has an affinity,
+		 * the name is shifted 2 tiles to the right.
+		 */
 ```
 
 and their options
@@ -49,9 +58,23 @@ For example, if I didn't want the unit's name to be shown on the MMB my unit nam
 // Unit name modules
 
 	//#define MMBName
+		/*
+		 * Draws the unit's name to [MMBNameX, MMBNameY]
+		 * using MMBNameColor.
+		 */
 	//#define MMBNameCentered
-	//#define MMBNameAffinityShifted
+		/*
+		 * Draws the unit's name to [MMBNameX, MMBNameY]
+		 * using MMBNameColor, centering it within the
+		 * number of tiles specified by MMBNameWidth.
+		 */
 
+	//#define MMBNameAffinityShifted
+		/*
+		 * Draws the unit's name to [MMBNameX, MMBNameY]
+		 * using MMBNameColor. If the unit has an affinity,
+		 * the name is shifted 2 tiles to the right.
+		 */
 ```
 
 Conversely, you select which module(s) to use by uncommenting them.
@@ -63,9 +86,23 @@ For example, if I just wanted the unit's name with no centering:
 // Unit name modules
 
 	#define MMBName
+		/*
+		 * Draws the unit's name to [MMBNameX, MMBNameY]
+		 * using MMBNameColor.
+		 */
 	//#define MMBNameCentered
-	//#define MMBNameAffinityShifted
+		/*
+		 * Draws the unit's name to [MMBNameX, MMBNameY]
+		 * using MMBNameColor, centering it within the
+		 * number of tiles specified by MMBNameWidth.
+		 */
 
+	//#define MMBNameAffinityShifted
+		/*
+		 * Draws the unit's name to [MMBNameX, MMBNameY]
+		 * using MMBNameColor. If the unit has an affinity,
+		 * the name is shifted 2 tiles to the right.
+		 */
 ```
 
 To make implementation simpler, certain module types only support one module from their list being used at a time, such as the unit name modules.
@@ -86,85 +123,11 @@ Modules involving skills require the FE8 skill system to be included within the 
 
 # Modules
 
-Here's a list of available modules and a short description of each:
-
-1. MMBStandardTilemap
-   * This is the standard tilemap drawing routine. It draws a blue, green, or red palette depending on the allegiance of the unit. This tilemap is made up of:
-   * A two byte header, containing width-1 and height-1
-   * Rows, with the last row first, consisting of tile indexe shorts
-   * An image called `Tile Indexes.png` shows the available (vanilla) tiles available for use with the tilemap. Combine the row number and column number to gain the tile index of the tile (i.e. the last tile in the image is $7F). Combine tile indexes with $400 to horizontally flip them, $800 to vertically flip them.
-   * When changing the size of the tilemap, be sure to edit both `MMBWidth` and `MMBHeight`.
-
-2. MMBName
-   * Shows the unit's name, aligned to the left.
-
-3. MMBNameCentered
-   * Shows the unit's name, aligned to the center of allocated space
-
-4. MMBNameAffinityShifted
-   * Shows the unit's name, aligned to the left. This module moves the name to the right 2 tiles if affinity is drawn. It's intended to be used alongside MMBAffinity, with the affinity icon drawn where the name moves from.
-
-5. MMBMinimug
-   * Shows the unit's minimug the way vanilla does. This includes getting generic minimugs as normal and also the 'increase portrait by 1' bit.
-
-6. MMBMinimugEnemyFlip
-   * Same as above but enemy minimugs face right.
-
-7. MMBInventory
-   * Shows all items in a unit's inventory in a horizontal line.
-
-8. MMBEquippedWeapon
-   * Shows only the unit's equipped item, if they have one.
-
-9. MMBEquippedWeaponName
-   * Shows only the unit's equipped item, if they have one, along with the item's name.
-
-10. MMBEquippedWeaponNameCentered
-    * Shows only the unit's equipped item, if they have one, along with the item's name centered in available space.
-
-11. MMBEquippedWeaponNameOnly
-    * Shows the unit's equipped weapon name, if they have one.
-
-12. MMBEquippedWeaponNameOnlyCentered
-    * Shows the unit's equipped weapon name centered in available space, if they have one.
-
-13. MMBInventoryOrEquippedWeaponName
-    * This shows the unit's full inventory if they are an enemy or their equipped weapon and weapon name if they are not.
-
-14. MMBInventoryOrEquippedWeaponNameCentered
-    * This shows the unit's full inventory if they are an enemy or their equipped weapon and weapon name centered in available space if they are not.
-
-15. MMBHPStatus
-    * This draws an HP label, current HP, and max HP the way vanilla does, alternating with status every 64 frames.
-
-16. MMBHP
-    * This draws an HP label, current HP, and max HP the way vanilla does.
-
-17. MMBDEFRES
-    * This alternates between drawing a defense label + number and a resistance label + number every 64 frames
-
-18. MMBAVODOD
-    * This alternates between drawing an avoid label + number and a dodge (crit avoid) label + number every 64 frames
-
-19. MMBHPBar
-    * This draws a bar that represents current HP/max HP.
-
-20. MMBHPBarStatus
-    * This draws a bar that represents current HP/max HP, alternating with status every 64 frames.
-
-21. MMBAffinity
-    * This draws the unit's affinity, if they have one.
-
-22. MMBSkillsAlternate
-    * This cycles through a unit's skills, if they have any. It switches to the next skill ever 64 frames. This module requires the skill system.
-
-23. MMB___Number
-    * These modules draw their associated stats. Unusual numbers include DOD (dodge or crit avoid), CHR (skill system skill charge), and RTG (rating, a sum of a unit's stats).
-
-24. MMB___Label
-    * These modules draw image labels for their associated stats. 
+Please see `Installers/MMBInstallerDefault.event` for descriptions of each module.
 
 # Creating New Modules (Advanced users)
+
+The MMB includes two utility files (`build.bat` and `Makefile` in the root folder) that can be used when developing modules. I can't guarantee that these will work for your environment out of the box. Both expect that you have [devkitARM](https://devkitpro.org/wiki/Getting_Started), [lyn](http://feuniverse.us/t/ea-asm-tool-lyn-elf2ea-if-you-will/2986), and [EA](https://feuniverse.us/t/event-assembler/1749). The Makefile assumes that you have [Stan's ea-dep](https://github.com/StanHash/ea-dep).
 
 Creating a MMB module requires some knowledge about THUMB, EA, and lyn. Taking a look at existing modules might be helpful, and you're free to contact me on FEU or the FEU Discord server.
 
@@ -224,7 +187,7 @@ SkipBottom:
 
 ```
 
-Instead of turning the asm into a dmp, we turn them into elfs and include them with lyn. This is step two.
+Step two is to turn your ASM into a `.lyn.event` file. There are two helpful files included in the root folder (`build.bat` and `Makefile`) that can be used to convert your sources, depending on your environment. Previously, the MMB would use `#inctevent lyn "Some/File.elf"` within `MMBCore.event` but I have since switched to pregenerating the `.lyn.event` files for assembly speed.
 
 In `MMBCore.event` there is a section that looks like:
 
@@ -235,7 +198,7 @@ In `MMBCore.event` there is a section that looks like:
 	// Tilemap modules
 
 		#ifdef MMBStandardTilemap
-			#inctevent lyn "Modules/MMBDrawTilemap.elf" "Internal/Definitions.elf"
+			#include "Modules/MMBDrawTilemap.lyn.event"
 			POIN MMBTilemap
 			WORD MMBTilemapPaletteIndex
 		#endif // MMBStandardTilemap
@@ -246,7 +209,7 @@ There are a few parts to this, so let's break them down.
 
 First, `#ifdef MMBStandardTilemap`. `MMBStandardTilemap` is going to be the name of the module in the installer. The installer defines `MMBStandardTilemap` when the module is used, otherwise it isn't defined. Using this ifdef system we can keep the size of the MMB smaller by not assembling modules that are not used.
 
-Second, `#inctevent lyn "Modules/MMBDrawTilemap.elf" "Internal/Definitions.elf"`. This uses `lyn` to include the contents of our elf file like it was a dmp, but it allows us to use outside symbols, like EA labels, definitions, and things from other elfs (like the `Internal/Definitions.elf` on that line).
+Second, `#include "Modules/MMBDrawTilemap.lyn.event"`. This uses `lyn` to include the contents of our elf file like it was a dmp, but it allows us to use outside symbols, like EA labels, definitions, and things from other elfs (like `Internal/Definitions.elf`).
 
 Third, we have some EA literals that correspond to options in our installer. I suggest doing math on these here rather than in your assembly in order to save time and space.
 
