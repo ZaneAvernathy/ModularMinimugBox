@@ -538,6 +538,13 @@ After each set of module options are definitions that you can use to adjust the 
 		 * cycling between all selected skills. Each is shown for 64 frames.
 		 */
 
+	//#define MMBEquippedWeaponSkill
+		/*
+		 * Draws the skill icon of the equipped weapon to
+		 * [MMBEquippedItemSkillX, MMBEquippedItemSkillY] if the weapon
+		 * has a skill.
+		 */
+
 // Skills options
 
 	// Coordinates are in pixels
@@ -568,6 +575,11 @@ After each set of module options are definitions that you can use to adjust the 
 
 	#define MMBSkillsAlternateX 120
 	#define MMBSkillsAlternateY 8
+
+	#define MMBEquippedItemSkillTileIndex 0x318
+
+	#define MMBEquippedItemSkillX 8
+	#define MMBEquippedItemSkillY 8
 
 // Number modules
 

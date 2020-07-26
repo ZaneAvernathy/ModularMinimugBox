@@ -55,6 +55,7 @@
 
 	.set EquippedWeaponIndex,	0x2C + 0x1B
 	.set DisplayedItemIndex,	0x2C + 0x1C
+	.set WeaponSkillFlag,		0x2C + 0x1D
 
 	.set CursorXOld,			0x2C + 0x20
 	.set CursorYOld,			0x2C + 0x21
@@ -176,6 +177,12 @@
 	.set ItemDataUseEffectID,			0x1E
 	.set ItemDataWeaponEffectID,		0x1F
 	.set ItemDataWeaponEXP,				0x20
+
+@ These are set by the skill system
+
+	.set ItemDataDebuffType,			0x21
+	.set ItemDataUnknown,				0x22
+	.set ItemDataItemSkill,				0x23
 
 @ Item attributes
 

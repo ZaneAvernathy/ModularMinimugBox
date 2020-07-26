@@ -761,6 +761,15 @@
 			#endif // MMBSkills
 		#endif // MMBRenderSkillsAlternate
 
+		#ifdef MMBEquippedWeaponSkill
+			#ifndef MMBEquippedWeaponSkillPrep
+				#define MMBEquippedWeaponSkillPrep
+			#endif // MMBEquippedWeaponSkillPrep
+			#ifndef MMBRenderEquippedWeaponSkill
+				#define MMBRenderEquippedWeaponSkill
+			#endif // MMBRenderEquippedWeaponSkill
+		#endif // MMBEquippedWeaponSkill
+
 	// Label modules
 
 	// Label drawing switchboard
@@ -1177,6 +1186,26 @@
 			#endif // MMBIconPrep
 		#endif // MMBSkills
 
+		#ifdef MMBEquippedWeaponSkillPrep
+			#include "Internal/MMBDrawEquippedWeaponSkill.lyn.event"
+			SHORT MMBEquippedItemSkillTileIndex
+			BYTE MMBSkillObjectPaletteIndex + 0x10
+			#ifdef HAX_ICON_REWORK
+				BYTE 1 // Skill icon sheet
+			#else
+				BYTE 1
+			#endif // HAX_ICON_REWORK
+		#endif // MMBEquippedWeaponSkillPrep
+
+		#ifdef MMBRenderEquippedWeaponSkill
+			#include "Internal/MMBRenderEquippedWeaponSkillObj.lyn.event"
+			SHORT (MMBSkillObjectPaletteIndex << 12) | MMBEquippedItemSkillTileIndex
+			BYTE MMBEquippedItemSkillX MMBEquippedItemSkillY
+			#ifndef MMBRenderIcon
+				#define MMBRenderIcon
+			#endif // MMBRenderIcon
+		#endif // MMBRenderEquippedWeaponSkill
+
 		#ifdef MMBRenderEquippedWeaponIcon
 			#include "Internal/MMBRenderEquippedWeapon.lyn.event"
 			SHORT (MMBInventoryObjectPaletteIndex << 12) | MMBInventoryTileIndex
@@ -1392,6 +1421,10 @@
 			POIN MMBSetEquippedWeaponOrFirstStaff
 		#endif // MMBEquippedItemOrStaffPrep
 
+		#ifdef MMBEquippedWeaponSkillPrep
+			POIN MMBDrawEquippedWeaponSkill
+		#endif // MMBEquippedWeaponSkillPrep
+
 		#ifdef MMBEquippedWeaponNameIfPlayerInternal
 			POIN MMBDrawEquippedWeaponNameIfPlayer
 		#endif // MMBEquippedWeaponNameIfPlayerInternal
@@ -1529,5 +1562,9 @@
 		#ifdef MMBHPBarStatus
 			POIN MMBDrawHPBarStatus
 		#endif // MMBHPBarStatus
+
+		#ifdef MMBRenderEquippedWeaponSkill
+			POIN MMBRenderEquippedWeaponSkillObj
+		#endif // MMBRenderEquippedWeaponSkill
 
 	WORD 0
