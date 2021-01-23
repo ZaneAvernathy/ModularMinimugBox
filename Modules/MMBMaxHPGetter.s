@@ -5,8 +5,8 @@
 
 MMBMaxHPGetter:
 
-	.global	MMBMaxGetter
-	.type	MMBMaxGetter, %function
+	.global	MMBMaxHPGetter
+	.type	MMBMaxHPGetter, %function
 
 	ldr		r0, =BattleBufAttacker
 	mov		r1, #UnitMaxHP
